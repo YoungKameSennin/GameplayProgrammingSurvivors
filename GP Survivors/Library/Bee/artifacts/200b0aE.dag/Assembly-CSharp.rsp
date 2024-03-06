@@ -377,6 +377,7 @@
 "Assets/Cainos/Pixel Art Top Down - Basic/Script/PropsAltar.cs"
 "Assets/Cainos/Pixel Art Top Down - Basic/Script/SpriteColorAnimation.cs"
 "Assets/Cainos/Pixel Art Top Down - Basic/Script/TopDownCharacterController.cs"
+"Assets/Scripts/Health.cs"
 "Assets/Scripts/PlayerController.cs"
 "Assets/Scripts/PositionLockCamera.cs"
 -langversion:9.0
