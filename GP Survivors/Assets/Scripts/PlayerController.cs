@@ -1,23 +1,40 @@
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 5f;
-    private Rigidbody2D rb;
+    [SerializeField] private float speed = 20.0f;
 
-    void Start()
+    private float modifiedSpeed;
+    private Vector3 movementDirection; 
+
+    void Awake()
     {
-        
-        rb = GetComponent<Rigidbody2D>();
+        transform.position = new Vector3(0, 0, 0);
+    }
+
+    public float GetCurrentSpeed()
+    {
+        return modifiedSpeed;
+    }
+
+    public Vector3 GetMovementDirection()
+    {
+        return movementDirection;
     }
 
     void Update()
     {
-        
-        float moveX = Input.GetAxis("Horizontal");
-        float moveY = Input.GetAxis("Vertical");
+        bool fire1Down = Input.GetButtonDown("Fire1");
+        bool fire1Pressed = Input.GetButton("Fire1");
+        bool fire1Up = Input.GetButtonUp("Fire1");
 
-        
-        rb.velocity = new Vector2(moveX * speed, moveY * speed);
+        bool fire2Down = Input.GetButtonDown("Fire2");
+        bool fire2Pressed = Input.GetButton("Fire2");
+        bool fire2Up = Input.GetButtonUp("Fire2");
+
+        movementDirection = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0.0f);
+        gameObject.transform.Translate(movementDirection * Time.deltaTime * speed);
     }
 }
