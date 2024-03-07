@@ -155,7 +155,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 4732553186955442225, guid: c39175fabe1394c77928592a24127467,
     type: 3}
   player: {fileID: 895897920}
-  spawnRate: 1
+  spawnRate: 5
   spawnRadius: 5
 --- !u!4 &409418459
 Transform:
@@ -31513,10 +31513,10 @@ RectTransform:
   - {fileID: 1770673115}
   m_Father: {fileID: 1063551035}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1.5, y: 0.25}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1838836431
 MonoBehaviour:
