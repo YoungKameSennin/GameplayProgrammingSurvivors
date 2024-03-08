@@ -4,3 +4,4 @@ the capsule can move based on the control wich can be use for implement the came
 
 2024/3/7
 "mapFix" this version revise the map setting and edge setting to pervent the player go out of the map, and the player will fall out of map by gravity.
+"palyerRotationFix" fix player rotate when it hit the edge
