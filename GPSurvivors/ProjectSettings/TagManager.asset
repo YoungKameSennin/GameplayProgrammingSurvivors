@@ -9,6 +9,7 @@ TagManager:
   - Gem
   - Pirate
   - Captain
+  - Enemy
   layers:
   - Default
   - TransparentFX
