@@ -32,5 +32,14 @@ public class EnemyController : MonoBehaviour
         movementDirection = player.transform.position - this.transform.position;
         movementDirection.Normalize();
         gameObject.transform.Translate(movementDirection * Time.deltaTime * speed);
+
+        if(movementDirection.x < 0)
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
+        }
+        else
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = false;
+        }
     }
 }

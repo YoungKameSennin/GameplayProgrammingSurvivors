@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
 
     private float modifiedSpeed;
     private Vector3 movementDirection; 
+    public Animator animator;
+
 
     void Awake()
     {
@@ -34,7 +36,29 @@ public class PlayerController : MonoBehaviour
         bool fire2Pressed = Input.GetButton("Fire2");
         bool fire2Up = Input.GetButtonUp("Fire2");
 
+        animator.SetBool("fire1", false);
+        animator.SetBool("fire2", false);
+
         movementDirection = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0.0f);
         gameObject.transform.Translate(movementDirection * Time.deltaTime * speed);
+
+        // animation for the player.
+        if(movementDirection != Vector3.zero)
+        {
+            if(movementDirection.x < 0)
+            {
+                gameObject.GetComponent<SpriteRenderer>().flipX = true;
+            }
+            else
+            {
+                gameObject.GetComponent<SpriteRenderer>().flipX = false;
+            }
+            animator.SetBool("isMoving", true);
+        }
+        else
+        {
+            animator.SetBool("isMoving", false);
+        }
+
     }
 }
