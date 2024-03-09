@@ -23,7 +23,6 @@ public class EnemySpawner : MonoBehaviour
         if (spawnTimer >= spawnRate)
         {
             spawnTimer = 0.0f;
-            Vector2 randomCircle = Random.insideUnitCircle.normalized * Random.Range(spawnRadiusMin, spawnRadiusMax);
             Vector3 spawnPosition = player.transform.position + Random.insideUnitSphere * spawnRadius + new Vector3(0, 0, 0);
             spawnPosition.z = 0;
             Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
