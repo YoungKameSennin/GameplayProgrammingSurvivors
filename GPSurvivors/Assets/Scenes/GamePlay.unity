@@ -913,8 +913,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 612a8ae253601495a8d6380d88bf40c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 7890526835255193365, guid: 6e97290fab7b944da87fe5c943858501,
-    type: 3}
+  enemyPrefabs:
+  - {fileID: 7890526835255193365, guid: 6e97290fab7b944da87fe5c943858501, type: 3}
   player: {fileID: 2072725234}
   spawnRate: 2
   spawnRadius: 5
