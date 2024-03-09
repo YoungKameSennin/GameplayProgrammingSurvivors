@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,10 +9,18 @@ public class PlayerController : MonoBehaviour
 
     private float modifiedSpeed;
     private Vector3 movementDirection; 
+    public Transform GameOverUI;
+    private GameOverUISection gameOverSection;
+    private Vector3 originalPosition;
 
     void Awake()
     {
         transform.position = new Vector3(0, 0, 0);
+
+        gameOverSection = new GameOverUISection(GameOverUI);
+        // gameOverSection.SetActive(false);
+        gameOverSection.OnClickRestartButtonAction = OnClickRestartButton;
+        originalPosition = transform.position;
     }
 
     public float GetCurrentSpeed()
@@ -37,4 +46,11 @@ public class PlayerController : MonoBehaviour
         movementDirection = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0.0f);
         gameObject.transform.Translate(movementDirection * Time.deltaTime * speed);
     }
+
+    private void OnClickRestartButton()
+    {
+        gameOverSection.SetActive(false);
+        transform.position = originalPosition;
+    }
 }
+
