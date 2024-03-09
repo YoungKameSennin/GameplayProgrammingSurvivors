@@ -9,14 +9,12 @@ public class PlayerController : MonoBehaviour
 
     private float modifiedSpeed;
     private Vector3 movementDirection; 
-<<<<<<< HEAD
     public Animator animator;
 
-=======
     public Transform GameOverUI;
     private GameOverUISection gameOverSection;
     private Vector3 originalPosition;
->>>>>>> 9a3897ca940a832f61be13e676b285809133229d
+
 
     void Awake()
     {
