@@ -24,7 +24,8 @@ public class EnemySpawner : MonoBehaviour
         {
             spawnTimer = 0.0f;
             Vector2 randomCircle = Random.insideUnitCircle.normalized * Random.Range(spawnRadiusMin, spawnRadiusMax);
-            Vector2 spawnPosition = new Vector2(player.transform.position.x + randomCircle.x, player.transform.position.y + randomCircle.y);
+            Vector3 spawnPosition = player.transform.position + Random.insideUnitSphere * spawnRadius + new Vector3(0, 0, 0);
+            spawnPosition.z = 0;
             Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
         }
     }
