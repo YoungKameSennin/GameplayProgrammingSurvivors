@@ -24,6 +24,7 @@ public class EnemySpawner : MonoBehaviour
         {
             spawnTimer = 0.0f;
             Vector3 spawnPosition = player.transform.position + Random.insideUnitSphere * spawnRadius + new Vector3(0, 0, 0);
+            spawnPosition.z = 0;
             Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
         }
     }

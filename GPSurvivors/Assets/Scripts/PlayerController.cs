@@ -11,8 +11,8 @@ public class PlayerController : MonoBehaviour
     private Vector3 movementDirection; 
     public Animator animator;
 
-    public Transform GameOverUI;
-    private GameOverUISection gameOverSection;
+    //public Transform GameOverUI;
+    //private GameOverUISection gameOverSection;
     private Vector3 originalPosition;
 
 
@@ -20,9 +20,9 @@ public class PlayerController : MonoBehaviour
     {
         transform.position = new Vector3(0, 0, 0);
 
-        gameOverSection = new GameOverUISection(GameOverUI);
+        //gameOverSection = new GameOverUISection(GameOverUI);
         // gameOverSection.SetActive(false);
-        gameOverSection.OnClickRestartButtonAction = OnClickRestartButton;
+        //gameOverSection.OnClickRestartButtonAction = OnClickRestartButton;
         originalPosition = transform.position;
     }
 
@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnClickRestartButton()
     {
-        gameOverSection.SetActive(false);
+        //gameOverSection.SetActive(false);
         transform.position = originalPosition;
     }
 }
