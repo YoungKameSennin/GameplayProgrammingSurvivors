@@ -6,3 +6,6 @@ the capsule can move based on the control wich can be use for implement the came
 "mapFix" this version revise the map setting and edge setting to pervent the player go out of the map, and the player will fall out of map by gravity.
 "palyerRotationFix" fix player rotate when it hit the edge
 "combat" try to implement the bullet track and attack nearest enemy scripts
+
+2024/3/9
+"random spawn" this update implement the random spawn function, make the enemy prefab list to allowed genrate more different enemy.
