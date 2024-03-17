@@ -26,6 +26,7 @@ public class Bullet : MonoBehaviour
         }
         else
         {
+            Debug.Log("no target");
             Destroy(gameObject);
         }
     }

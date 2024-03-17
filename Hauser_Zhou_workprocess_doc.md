@@ -9,3 +9,6 @@ the capsule can move based on the control wich can be use for implement the came
 
 2024/3/9
 "random spawn" this update implement the random spawn function, make the enemy prefab list to allowed genrate more different enemy.
+
+2024/3/16
+"auto shoot" this update complete the function that player will shoot a projectile to the enemy through time. create a raw projectile prefab to test the scripts (Bullet,PlayerAttackNearestEnemy), complete the tracking function of the projectile and shooting angle.
