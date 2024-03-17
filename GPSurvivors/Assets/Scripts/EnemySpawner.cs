@@ -8,6 +8,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private float spawnRate = 1.0f;
     [SerializeField] private float spawnRadius = 5.0f;
+    [SerializeField] private float safeRadius = 3.0f;
     private float spawnTimer = 0.0f;
 
     // Start is called before the first frame update
@@ -23,7 +24,7 @@ public class EnemySpawner : MonoBehaviour
         if (spawnTimer >= spawnRate)
         {
             spawnTimer = 0.0f;
-            Vector3 spawnPosition = player.transform.position + Random.insideUnitSphere * spawnRadius + new Vector3(0, 0, 0);
+            Vector3 spawnPosition = player.transform.position + Random.insideUnitSphere * spawnRadius + new Vector3(safeRadius, safeRadius, 0);
             spawnPosition.z = 0;
             // this is just for stage one random genrate enemy, when the exp system up we can do the random spawn based on the level.
             int prefabIndex = Random.Range(0, enemyPrefabs.Length);

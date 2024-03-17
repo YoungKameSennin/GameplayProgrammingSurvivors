@@ -42,5 +42,9 @@ public class Health : MonoBehaviour
     void Update()
     {
         healthBar.value = curHealth / maxHealth;
+        if(curHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
