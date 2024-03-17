@@ -22,7 +22,8 @@ public class Health : MonoBehaviour
             curHealth = 0;
             // Die
         }
-        else {
+        else
+        {
             curHealth -= damage;
         }
     }
@@ -33,7 +34,8 @@ public class Health : MonoBehaviour
         {
             curHealth = maxHealth;
         }
-        else {
+        else
+        {
             curHealth += healAmount;
         }
     }
@@ -42,8 +44,13 @@ public class Health : MonoBehaviour
     void Update()
     {
         healthBar.value = curHealth / maxHealth;
-        if(curHealth <= 0)
+        if (curHealth <= 0)
         {
+            if (gameObject.tag == "Player")
+            {
+                // Stop the time
+                Time.timeScale = 0f;
+            }
             Destroy(gameObject);
         }
     }

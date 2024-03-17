@@ -28,6 +28,10 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
+        if (player == null)
+        {
+            return;
+        }
         playerTransform = player.transform;
         movementDirection = player.transform.position - this.transform.position;
         movementDirection.Normalize();

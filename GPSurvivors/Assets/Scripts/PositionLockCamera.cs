@@ -21,7 +21,11 @@ public class PositionLockCamera : MonoBehaviour
     // Use the LateUpdate message to avoid setting the camera's position
     // GameObject locations are finalized.
     void LateUpdate()
-    {
+    {   
+        if (this.Target == null)
+        {
+            return;
+        }
         var targetPosition = this.Target.transform.position;
         var cameraPosition = managedCamera.transform.position;
 

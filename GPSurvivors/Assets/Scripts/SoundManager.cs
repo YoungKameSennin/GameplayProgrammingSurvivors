@@ -64,11 +64,8 @@ public class SoundManager : MonoBehaviour
         
         track.audioSource.Play();
 
-        if(null != this.trackPlaying) {
-            this.trackPlaying.audioSource.Stop();
-        }   
-
         this.trackPlaying = track;
+        
     }
 
 

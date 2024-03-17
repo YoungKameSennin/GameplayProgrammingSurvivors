@@ -9,6 +9,12 @@ public class Bullet : MonoBehaviour
     public float rotateSpeed = 200f;//adjust if needed
     private Transform target;
 
+    void Start()
+    {
+        // Ignore collision with player
+        Physics2D.IgnoreCollision(GetComponent<Collider2D>(), GameObject.Find("Player").GetComponent<Collider2D>(), true);
+    }
+
     public void SetTarget(Transform newTarget)
     {
         target = newTarget;
@@ -35,9 +41,13 @@ public class Bullet : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // collision.gameObject is the reference to the collided object
-        Debug.Log("Collided with " + collision.gameObject.name);
-        collision.gameObject.GetComponent<Health>().TakeDamage(damage);
-        Destroy(gameObject);
+        if (collision.gameObject.tag == "Enemy") {
+            collision.gameObject.GetComponent<Health>().TakeDamage(damage);
+        }
+
+        if (collision.gameObject.tag != "Player") {
+            Destroy(gameObject);
+        }
     }
 
     /*

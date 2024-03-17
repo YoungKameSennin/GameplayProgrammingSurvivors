@@ -544,7 +544,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &988470507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41025,6 +41025,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2036187319}
   - component: {fileID: 2036187320}
+  - component: {fileID: 2036187321}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -41064,12 +41065,12 @@ MonoBehaviour:
   sfxMixerGroup: {fileID: -5514887378846270790, guid: 20c2fc25cc8a72d439ece44caa80010d,
     type: 2}
   musicTracks:
-  - clip: {fileID: 0}
+  - clip: {fileID: 8300000, guid: af51277f059d39b44b4e12ff6879830d, type: 3}
     audioSource: {fileID: 0}
-    title: 
-    volume: 0
-    pitch: 0
-    loop: 0
+    title: Earth
+    volume: 1
+    pitch: 1
+    loop: 1
   - clip: {fileID: 0}
     audioSource: {fileID: 0}
     title: 
@@ -41119,6 +41120,19 @@ MonoBehaviour:
     volume: 0
     pitch: 0
     loop: 0
+--- !u!114 &2036187321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2036187317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0cd155357923411ba7f19902b04b13c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicTrack: Earth
 --- !u!1 &2072725234
 GameObject:
   m_ObjectHideFlags: 0
@@ -41135,9 +41149,10 @@ GameObject:
   - component: {fileID: 2072725240}
   - component: {fileID: 2072725241}
   - component: {fileID: 2072725242}
+  - component: {fileID: 2072725243}
   m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41296,7 +41311,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -41349,6 +41364,19 @@ MonoBehaviour:
     type: 3}
   firePoint: {fileID: 2072725236}
   shootInterval: 1.2
+--- !u!114 &2072725243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072725234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f14d9690e45a441159e894d96b55afca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 30
 --- !u!1 &2091220814
 GameObject:
   m_ObjectHideFlags: 0
