@@ -17,6 +17,15 @@ public class EnemyController : MonoBehaviour
     {
         player = GameObject.Find("Player");
     }
+    void Start() 
+    {
+        // Ignore collision between the spawned itemPrefab and all GameObjects tagged as "Enemy"
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Gem");
+        foreach (GameObject enemy in enemies)
+        {
+            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), enemy.GetComponent<Collider2D>(), true);
+        }
+    }
 
     public float GetCurrentSpeed()
     {

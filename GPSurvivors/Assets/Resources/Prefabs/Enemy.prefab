@@ -594,6 +594,8 @@ MonoBehaviour:
   curHealth: 100
   maxHealth: 100
   healthBar: {fileID: 33642030428800588}
+  itemPrefab: {fileID: 7430569447165051818, guid: 8696b598a26aaf141abd683312c677d1,
+    type: 3}
 --- !u!114 &9015788584188126123
 MonoBehaviour:
   m_ObjectHideFlags: 0

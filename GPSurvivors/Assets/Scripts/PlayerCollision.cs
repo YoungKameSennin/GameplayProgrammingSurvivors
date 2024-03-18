@@ -11,5 +11,11 @@ public class PlayerCollision : MonoBehaviour
         if (collision.gameObject.tag == "Enemy") {
             gameObject.GetComponent<Health>().TakeDamage(damage);
         }
+
+        if (collision.gameObject.tag == "Gem") 
+        {
+            // Destroy the itemPrefab
+            Destroy(collision.gameObject);
+        }
     }
 }
