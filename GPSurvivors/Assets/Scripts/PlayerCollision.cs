@@ -11,7 +11,5 @@ public class PlayerCollision : MonoBehaviour
         if (collision.gameObject.tag == "Enemy") {
             gameObject.GetComponent<Health>().TakeDamage(damage);
         }
-        
-        
     }
 }

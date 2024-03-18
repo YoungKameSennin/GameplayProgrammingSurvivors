@@ -10,6 +10,8 @@ public class EnemyController : MonoBehaviour
 
     private float modifiedSpeed;
     private Vector3 movementDirection; 
+    
+    public Animator animator;
 
     void Awake()
     {
@@ -45,5 +47,21 @@ public class EnemyController : MonoBehaviour
         {
             gameObject.GetComponent<SpriteRenderer>().flipX = false;
         }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            animator.SetBool("IsHit", true);
+            StartCoroutine(HitCooldown());
+        }
+    }
+    private IEnumerator HitCooldown()
+    {
+        yield return new WaitForSeconds(0.05f); 
+        animator.SetBool("IsHitCooldown", true);
+        yield return new WaitForSeconds(0.5f); 
+        animator.SetBool("IsHit", false);
+        animator.SetBool("IsHitCooldown", false);
     }
 }
