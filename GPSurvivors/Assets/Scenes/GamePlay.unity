@@ -41255,6 +41255,7 @@ MonoBehaviour:
   curHealth: 100
   maxHealth: 100
   healthBar: {fileID: 1758951749}
+  itemPrefab: {fileID: 0}
 --- !u!50 &2072725239
 Rigidbody2D:
   serializedVersion: 4
