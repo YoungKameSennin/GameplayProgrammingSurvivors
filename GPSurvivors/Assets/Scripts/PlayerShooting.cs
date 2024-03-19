@@ -31,13 +31,17 @@ public class PlayerShooting : MonoBehaviour
         GameObject nearestEnemy = FindNearestEnemy();
         if (currentTarget != null)
         {
-            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+            for (int i = 0; i < PlayerStatsManager.Instance.bulletsPerShoot; i++)
+            {
+                GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
 
-            Vector3 direction = currentTarget.transform.position - firePoint.position;
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            bullet.transform.rotation = Quaternion.Euler(0f, 0f, angle - 90);
+                Vector3 direction = currentTarget.transform.position - firePoint.position;
+                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                bullet.transform.rotation = Quaternion.Euler(0f, 0f, angle - 90);
 
-            bullet.GetComponent<Bullet>().SetTarget(currentTarget.transform);
+                bullet.GetComponent<Bullet>().SetTarget(currentTarget.transform);
+            }
+
         }
     }
 
