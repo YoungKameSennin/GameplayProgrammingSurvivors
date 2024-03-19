@@ -12,3 +12,6 @@ the capsule can move based on the control wich can be use for implement the came
 
 2024/3/16
 "auto shoot" this update complete the function that player will shoot a projectile to the enemy through time. create a raw projectile prefab to test the scripts (Bullet,PlayerAttackNearestEnemy), complete the tracking function of the projectile and shooting angle.
+
+2024/3/19
+"combat system" this update implement the playerstats controller, and a raw exp bar, and level system. Now player can level and choose upgrade option.
