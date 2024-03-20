@@ -43240,6 +43240,7 @@ GameObject:
   - component: {fileID: 2072725242}
   - component: {fileID: 2072725243}
   - component: {fileID: 2072725244}
+  - component: {fileID: 2072725245}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -43456,7 +43457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edaff8a5f6ee87541aa3c793ca8255d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 5005564517564955526, guid: 50f39bfdec805884dbffef2e6557975f,
+  bulletPrefab: {fileID: 8166074427350919949, guid: c3ec90b1674efb547b2e0d8e70514c6d,
     type: 3}
   firePoint: {fileID: 2072725236}
   shootInterval: 1.2
@@ -43488,14 +43489,28 @@ MonoBehaviour:
   level: 1
   bulletsPerShoot: 2
   ShieldHealth: 100
-  shieldPrefab: {fileID: 3747295795155575009, guid: abcf402e68d09ce48a2ffeab6737a361,
-    type: 3}
   playerPosition: {fileID: 2072725236}
+  shieldManager: {fileID: 0}
   health: 100
   shootSpeed: 1
   currentExperience: 0
   maxExperience: 50
   uiExperienceBar: {fileID: 515351435}
+--- !u!114 &2072725245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072725234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c907ae62e3d4eba4b90a5504069f37de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shieldPrefab: {fileID: 3747295795155575009, guid: abcf402e68d09ce48a2ffeab6737a361,
+    type: 3}
+  shieldHealth: 100
 --- !u!1 &2091220814
 GameObject:
   m_ObjectHideFlags: 0

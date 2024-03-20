@@ -54,7 +54,7 @@ public class PlayerShooting : MonoBehaviour
                 bullet.GetComponent<Bullet>().SetTarget(nearestEnemy.transform);
             }
 
-            yield return new WaitForSeconds(0.06f);
+            yield return new WaitForSeconds(0.09f);
         }
     }
 
