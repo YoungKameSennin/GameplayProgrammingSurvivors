@@ -39,8 +39,9 @@ public class Bullet : MonoBehaviour
         }
         else
         {
-            Debug.Log("no target");
+            Debug.LogWarning("Bullet Update method found no target.");
             Destroy(gameObject);
+            return;
         }
     }
 
@@ -49,23 +50,14 @@ public class Bullet : MonoBehaviour
         // collision.gameObject is the reference to the collided object
         if (collision.gameObject.tag == "Enemy") {
             collision.gameObject.GetComponent<Health>().TakeDamage(damage);
-        }
-
-        if (collision.gameObject.tag != "Player") {
             Destroy(gameObject);
         }
-    }
-
-    /*
-    void OnTriggerEnter2D(Collider2D collider)
-    {
-        if (collider.transform == target)
+        if (collision.gameObject.tag == "Edge")
         {
-            //这里写扣血逻辑，我不太清楚enemy的构成，不知道该怎么扣血。
-            target.GetComponent<Enemy>().TakeDamage(damage);
-
             Destroy(gameObject);
         }
+
     }
-    */
+
+
 }

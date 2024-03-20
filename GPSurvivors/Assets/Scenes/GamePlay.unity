@@ -1261,7 +1261,7 @@ GameObject:
   - component: {fileID: 1610587421}
   m_Layer: 3
   m_Name: EDGE
-  m_TagString: Untagged
+  m_TagString: Edge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1644,7 +1644,7 @@ GameObject:
   - component: {fileID: 1891768653}
   m_Layer: 0
   m_Name: Tilemap
-  m_TagString: Untagged
+  m_TagString: Edge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41785,7 +41785,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 1
-  bulletsPerShoot: 1
+  bulletsPerShoot: 2
   ShieldTime: 5
   ShieldHealth: 100
   health: 100

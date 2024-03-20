@@ -10,6 +10,7 @@ TagManager:
   - Pirate
   - Captain
   - Enemy
+  - Edge
   layers:
   - Default
   - TransparentFX
