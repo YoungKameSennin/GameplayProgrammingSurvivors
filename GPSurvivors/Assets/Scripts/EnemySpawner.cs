@@ -8,7 +8,6 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private float spawnRate = 1.0f;
     [SerializeField] private float spawnRadius = 5.0f;
-    [SerializeField] private float safeRadius = 3.0f;
     private float spawnTimer = 0.0f;
 
     // Start is called before the first frame update
@@ -24,9 +23,25 @@ public class EnemySpawner : MonoBehaviour
         if (spawnTimer >= spawnRate)
         {
             spawnTimer = 0.0f;
-            Vector3 spawnPosition = player.transform.position + Random.insideUnitSphere * spawnRadius + new Vector3(safeRadius, safeRadius, 0);
-            spawnPosition.z = 0;
-            // this is just for stage one random genrate enemy, when the exp system up we can do the random spawn based on the level.
+            SpawnEnemy();
+        }
+    }
+
+    void SpawnEnemy()
+    {
+        // Calculate a random angle in radians
+        float randomAngle = Random.Range(0f, Mathf.PI * 2f);
+
+        // Calculate random x and y offsets using trigonometry
+        float xOffset = Mathf.Cos(randomAngle) * spawnRadius;
+        float yOffset = Mathf.Sin(randomAngle) * spawnRadius;
+
+        // Calculate spawn position around the player
+        Vector3 spawnPosition = player.transform.position + new Vector3(xOffset, yOffset, 0);
+
+        // Instantiate a random enemy prefab at the calculated spawn position
+        if (enemyPrefabs.Length > 0)
+        {
             int prefabIndex = Random.Range(0, enemyPrefabs.Length);
             Instantiate(enemyPrefabs[prefabIndex], spawnPosition, Quaternion.identity);
         }
