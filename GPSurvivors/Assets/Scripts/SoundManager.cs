@@ -7,7 +7,6 @@ using UnityEngine.Audio;
  * Adapted from "Indroduction to AUDIO in Unity" by Brackeys:
  * https://www.youtube.com/watch?v=6OT43pvUyfY
  *
- * Audio assets from: https://sirental.itch.io/elemental-dungeons
  */
 
 public class SoundManager : MonoBehaviour
@@ -50,6 +49,9 @@ public class SoundManager : MonoBehaviour
             clip.audioSource.loop = clip.loop;
             clip.audioSource.outputAudioMixerGroup = this.sfxMixerGroup;
         }
+
+        //play initial track
+        this.PlayMusicTrack("Earth");
     }
 
     public void PlayMusicTrack(string title)
@@ -64,8 +66,11 @@ public class SoundManager : MonoBehaviour
         
         track.audioSource.Play();
 
+        if(null != this.trackPlaying) {
+            this.trackPlaying.audioSource.Stop();
+        }   
+
         this.trackPlaying = track;
-        
     }
 
 
@@ -80,5 +85,18 @@ public class SoundManager : MonoBehaviour
         }
 
         track.audioSource.Play();
+    }
+
+    public void StopSoundEffect(string title)
+    {
+        var track = this.sfxClips.Find(track => track.title == title);
+
+        if(null == track) 
+        {
+            Debug.Log("Sound track not found: " + title);
+            return;
+        }
+
+        track.audioSource.Stop();
     }
 }
