@@ -1096,7 +1096,7 @@ MonoBehaviour:
   enemyPrefabs:
   - {fileID: 7890526835255193365, guid: 6e97290fab7b944da87fe5c943858501, type: 3}
   player: {fileID: 2072725234}
-  spawnRate: 2
+  spawnRate: 0.7
   spawnRadius: 5
   safeRadius: 5
 --- !u!4 &1449744612
@@ -41343,7 +41343,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0.11, y: 4.39}
-  m_SizeDelta: {x: 18.4897, y: -0.461}
+  m_SizeDelta: {x: 18.4897, y: 0.461}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1961425398
 MonoBehaviour:
@@ -41786,8 +41786,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 1
   bulletsPerShoot: 2
-  ShieldTime: 5
   ShieldHealth: 100
+  shieldPrefab: {fileID: 3747295795155575009, guid: abcf402e68d09ce48a2ffeab6737a361,
+    type: 3}
+  playerPosition: {fileID: 2072725236}
   health: 100
   shootSpeed: 1
   currentExperience: 0

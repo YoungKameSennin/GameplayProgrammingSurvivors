@@ -9,8 +9,10 @@ public class PlayerStatsManager : MonoBehaviour
     public int level = 1;
     public int bulletsPerShoot = 1;
 
-    public float ShieldTime = 5f;
-    public float ShieldHealth = 100;
+    //public float ShieldTime = 20f;
+    public float ShieldHealth = 50;
+    public GameObject shieldPrefab;
+    public Transform playerPosition;
 
     public float health = 100;
     public float shootSpeed = 1.0f;
@@ -18,15 +20,15 @@ public class PlayerStatsManager : MonoBehaviour
     public float currentExperience = 0;
     public float maxExperience = 50;
 
-    private float experiencePerGem = 10.0f;
+    private float experiencePerGem = 30.0f;
     public UIExperienceBar uiExperienceBar;
     public enum UpgradeOption
     {
         IncreaseBullets,
         IncreaseHealth,
         IncreaseShootSpeed,
-        IncreaseShieldTime,
-        // 可以添加更多选项
+        IncreaseShieldHealth,
+        // 可以添加更多技能提升选项
     }
 
     void Awake()
@@ -79,13 +81,12 @@ public class PlayerStatsManager : MonoBehaviour
         List<UpgradeOption> allOptions = new List<UpgradeOption>()
         {
             UpgradeOption.IncreaseBullets,
-            UpgradeOption.IncreaseHealth,
-            UpgradeOption.IncreaseShootSpeed,
-            UpgradeOption.IncreaseShieldTime
+            //UpgradeOption.IncreaseHealth,
+            UpgradeOption.IncreaseShieldHealth
         };
 
         List<UpgradeOption> chosenOptions = new List<UpgradeOption>();
-        for (int i = 0; i < 3; i++) // 随机选择3个不同的选项
+        for (int i = 0; i < 2; i++) // 随机选择3个不同的选项
         {
             int randomIndex = Random.Range(0, allOptions.Count);
             chosenOptions.Add(allOptions[randomIndex]);
@@ -101,15 +102,43 @@ public class PlayerStatsManager : MonoBehaviour
             case UpgradeOption.IncreaseBullets:
                 bulletsPerShoot++;
                 break;
-            case UpgradeOption.IncreaseHealth:
-                health += 20;
-                break;
+            //case UpgradeOption.IncreaseHealth:
+                //health += 20;
+                //break;
             case UpgradeOption.IncreaseShootSpeed:
                 shootSpeed *= 0.9f; 
                 break;
-            case UpgradeOption.IncreaseShieldTime:
-                ShieldTime += 2f;
+            case UpgradeOption.IncreaseShieldHealth:
+                ShieldHealth += 20f;
+                CheckAndActivateShield();
                 break;
+        }
+    }
+
+
+
+
+
+
+
+    //code related to Shield
+
+    bool IsShieldActive()
+    {
+        Shield existingShield = FindObjectOfType<Shield>();
+        return existingShield != null && existingShield.isActiveAndEnabled;
+    }
+    void CheckAndActivateShield()
+    {
+        if (ShieldHealth > 0 && !IsShieldActive())
+        {
+            
+            GameObject shieldGameObject = Instantiate(shieldPrefab, playerPosition.position, Quaternion.identity);
+            Shield shieldComponent = shieldGameObject.GetComponent<Shield>();
+            if (shieldComponent != null)
+            {
+                shieldComponent.ActivateShield();
+            }
         }
     }
 }

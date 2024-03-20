@@ -36,15 +36,23 @@ public class PlayerShooting : MonoBehaviour
 
     IEnumerator ShootBullets(int bulletsToShoot, GameObject nearestEnemy)
     {
+        
         for (int i = 0; i < bulletsToShoot; i++)
         {
+            if (nearestEnemy == null || nearestEnemy.gameObject == null)
+            {
+                yield break;
+            }
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
 
             Vector3 direction = nearestEnemy.transform.position - firePoint.position;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             bullet.transform.rotation = Quaternion.Euler(0f, 0f, angle - 90);
 
-            bullet.GetComponent<Bullet>()?.SetTarget(nearestEnemy.transform);
+            if (bullet.GetComponent<Bullet>() != null)
+            {
+                bullet.GetComponent<Bullet>().SetTarget(nearestEnemy.transform);
+            }
 
             yield return new WaitForSeconds(0.06f);
         }

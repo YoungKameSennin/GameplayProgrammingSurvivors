@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour
     public float speed = 5f;
     public float rotateSpeed = 200f;//adjust if needed
     private Transform target;
-
+    private Vector2 lastDirection;
     void Start()
     {
         // Ignore collision with player
@@ -32,6 +32,7 @@ public class Bullet : MonoBehaviour
         {
             // let bullet keep track the enemy
             Vector2 direction = (target.position - transform.position).normalized;
+            lastDirection = direction;
 
             float rotateAmount = Vector3.Cross(direction, transform.up).z;
             GetComponent<Rigidbody2D>().angularVelocity = -rotateAmount * rotateSpeed;
@@ -39,9 +40,8 @@ public class Bullet : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Bullet Update method found no target.");
-            Destroy(gameObject);
-            return;
+            GetComponent<Rigidbody2D>().velocity = lastDirection * speed;
+            CheckIfOutOfCameraBounds();
         }
     }
 
@@ -56,7 +56,19 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if (collision.gameObject.tag == "Gem")
+        {
+            Destroy(gameObject);
+        }
+    }
 
+    void CheckIfOutOfCameraBounds()
+    {
+        Vector2 screenPosition = Camera.main.WorldToViewportPoint(transform.position);
+        if (screenPosition.x < 0 || screenPosition.x > 1 || screenPosition.y < 0 || screenPosition.y > 1)
+        {
+            Destroy(gameObject);
+        }
     }
 
 
