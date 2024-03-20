@@ -6,7 +6,7 @@ public class ShieldManager : MonoBehaviour
 {
     public GameObject shieldPrefab; 
     private GameObject currentShield; 
-    public float shieldHealth = 100f; 
+    public float shieldHealth;
 
     void Update()
     {
@@ -22,7 +22,10 @@ public class ShieldManager : MonoBehaviour
         {
             Debug.LogWarning("Player position is null.");
             
-            if (currentShield != null) DestroyShield();
+            if (currentShield != null)
+            {
+                Destroy(currentShield);
+            }
         }
     }
 
@@ -31,33 +34,16 @@ public class ShieldManager : MonoBehaviour
         if (currentShield == null)
         {
             currentShield = Instantiate(shieldPrefab, PlayerStatsManager.Instance.playerPosition.position, Quaternion.identity);
-            Shield shieldScript = currentShield.GetComponent<Shield>(); 
-            if (shieldScript != null)
+            Shield shieldScript = currentShield.GetComponent<Shield>();
+            shieldHealth = PlayerStatsManager.Instance.ShieldHealth;
+            
+            if (shieldScript == null)
             {
-                shieldScript.Initialize(this);
+                
+                shieldScript.Initialize(this, shieldHealth);
             }
         }
     }
 
-    public void DestroyShield()
-    {
-        if (currentShield != null)
-        {
-            Destroy(currentShield);
-            currentShield = null;
-        }
-    }
 
-    public void ApplyDamageToShield(float damage)
-    {
-        
-        shieldHealth -= damage;
-        Debug.Log($"Shield damaged. Current health: {shieldHealth}");
-
-        if (shieldHealth <= 0)
-        {
-            Debug.Log("Shield destroyed.");
-            DestroyShield();
-        }
-    }
 }
