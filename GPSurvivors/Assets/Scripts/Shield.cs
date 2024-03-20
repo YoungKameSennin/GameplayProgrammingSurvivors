@@ -9,10 +9,15 @@ public class Shield : MonoBehaviour
 
     void Update()
     {
-        
-        if (gameObject.activeSelf)
+
+        if (PlayerStatsManager.Instance != null && PlayerStatsManager.Instance.playerPosition != null)
         {
             transform.position = PlayerStatsManager.Instance.playerPosition.position;
+        }
+        else
+        {
+            Debug.LogWarning("Player position is null, deactivating shield.");
+            DeactivateShield();
         }
 
 
