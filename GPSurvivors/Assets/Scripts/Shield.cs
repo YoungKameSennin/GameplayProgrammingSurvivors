@@ -11,6 +11,7 @@ public class Shield : MonoBehaviour
     {
 
         if (PlayerStatsManager.Instance != null && PlayerStatsManager.Instance.playerPosition != null)
+
         {
             transform.position = PlayerStatsManager.Instance.playerPosition.position;
         }

@@ -80,13 +80,13 @@ public class PlayerStatsManager : MonoBehaviour
     {
         List<UpgradeOption> allOptions = new List<UpgradeOption>()
         {
-            UpgradeOption.IncreaseBullets,
+            //UpgradeOption.IncreaseBullets,
             //UpgradeOption.IncreaseHealth,
             UpgradeOption.IncreaseShieldHealth
         };
 
         List<UpgradeOption> chosenOptions = new List<UpgradeOption>();
-        for (int i = 0; i < 2; i++) // 随机选择3个不同的选项
+        for (int i = 0; i < 1; i++) // 随机选择3个不同的选项
         {
             int randomIndex = Random.Range(0, allOptions.Count);
             chosenOptions.Add(allOptions[randomIndex]);
@@ -130,9 +130,10 @@ public class PlayerStatsManager : MonoBehaviour
     }
     void CheckAndActivateShield()
     {
+        Debug.Log("CheckAndActivateShield called");
         if (ShieldHealth > 0 && !IsShieldActive())
         {
-            
+            Debug.Log("Trying to instantiate shield");
             GameObject shieldGameObject = Instantiate(shieldPrefab, playerPosition.position, Quaternion.identity);
             Shield shieldComponent = shieldGameObject.GetComponent<Shield>();
             if (shieldComponent != null)

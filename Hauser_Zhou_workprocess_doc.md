@@ -15,3 +15,6 @@ the capsule can move based on the control wich can be use for implement the came
 
 2024/3/19
 "combat system" this update implement the playerstats controller, and a raw exp bar, and level system. Now player can level and choose upgrade option.
+
+2024/3/20
+"shield underMap" this update implement the shield, and the shooting mutiple bullet. Also redesign the layer to avoid unwanted collide. Fix a tons of bug during the testing, but the repo issue cause me forgot what I done.
