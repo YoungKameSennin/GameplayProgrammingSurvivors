@@ -36,8 +36,7 @@ public class ShieldManager : MonoBehaviour
             currentShield = Instantiate(shieldPrefab, PlayerStatsManager.Instance.playerPosition.position, Quaternion.identity);
             Shield shieldScript = currentShield.GetComponent<Shield>();
             shieldHealth = PlayerStatsManager.Instance.ShieldHealth;
-            
-            if (shieldScript == null)
+            if (shieldScript != null)
             {
                 
                 shieldScript.Initialize(this, shieldHealth);
