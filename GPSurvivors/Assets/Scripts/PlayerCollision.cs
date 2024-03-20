@@ -7,13 +7,13 @@ public class PlayerCollision : MonoBehaviour
     [SerializeField] private float damage = 30.0f;
     [SerializeField] private float healBottleAmount = 25.0f;
     // Codes for changing player color
-    //private SpriteRenderer playerRenderer;
-    //private Color originalColor;
+    private SpriteRenderer playerRenderer;
+    private Color originalColor;
 
     private void Start()
     {
-        //playerRenderer = GetComponent<SpriteRenderer>();
-        //originalColor = playerRenderer.color;
+        playerRenderer = GetComponent<SpriteRenderer>();
+        originalColor = playerRenderer.color;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -25,7 +25,7 @@ public class PlayerCollision : MonoBehaviour
             gameObject.GetComponent<Health>().TakeDamage(damage);
 
             // Change player's color to red for 0.5 seconds
-            //StartCoroutine(FlashRed());
+            StartCoroutine(FlashRed());
         }
 
         if (collision.gameObject.tag == "hpBottle") 
@@ -36,7 +36,7 @@ public class PlayerCollision : MonoBehaviour
             Destroy(collision.gameObject);
         }
     }
-    /*
+    
     IEnumerator FlashRed()
     {
         // Change player's color to red
@@ -48,5 +48,5 @@ public class PlayerCollision : MonoBehaviour
         // Change player's color back to original color
         playerRenderer.color = originalColor;
     }
-    */
+    
 }

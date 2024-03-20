@@ -26,12 +26,6 @@ public class EnemyController : MonoBehaviour
         {
             Physics2D.IgnoreCollision(GetComponent<Collider2D>(), gem.GetComponent<Collider2D>(), true);
         }
-        // Ignore collision between the spawned hp bottles and all enemies
-        //GameObject[] hpBottles = GameObject.FindGameObjectsWithTag("hpBottle");
-        //foreach (GameObject hpBottle in hpBottles)
-        //{
-        //    Physics2D.IgnoreCollision(GetComponent<Collider2D>(), hpBottle.GetComponent<Collider2D>(), true);
-        //}
     }
 
     public float GetCurrentSpeed()

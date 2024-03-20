@@ -32,7 +32,7 @@ public class Health : MonoBehaviour
             curHealth -= damage;
         }
     }
-    
+
     public void Heal(float healAmount)
     {
         if (curHealth + healAmount >= maxHealth)
@@ -94,8 +94,11 @@ public class Health : MonoBehaviour
             {
                 // Stop the time
                 Time.timeScale = 0f;
+                gameObject.GetComponent<SpriteRenderer>().enabled = false;
             }
-            Destroy(gameObject);
+            else{
+                Destroy(gameObject);
+            }
         }
     }
 }
