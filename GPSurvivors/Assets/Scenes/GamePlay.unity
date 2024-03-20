@@ -43178,11 +43178,11 @@ MonoBehaviour:
     pitch: 0
     loop: 0
   sfxClips:
-  - clip: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 79ec9f5650d6242bda8e1176d537c4db, type: 3}
     audioSource: {fileID: 0}
-    title: 
-    volume: 0
-    pitch: 0
+    title: Spawn
+    volume: 1
+    pitch: 1
     loop: 0
   - clip: {fileID: 0}
     audioSource: {fileID: 0}
