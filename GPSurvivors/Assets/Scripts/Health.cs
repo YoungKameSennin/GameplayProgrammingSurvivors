@@ -11,6 +11,7 @@ public class Health : MonoBehaviour
     [SerializeField] private GameObject gemPrefab;
     [SerializeField] private GameObject hpBottlePrefab;
     [SerializeField] private int hpBottleChance = 3;
+    [SerializeField] private GameObject scrollingText;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +21,12 @@ public class Health : MonoBehaviour
     }
 
     public void TakeDamage(float damage)
-    {
+    {   
+        if (this.scrollingText)
+        {
+            this.ShowScrollingText(damage.ToString());
+        }
+
         if (curHealth - damage <= 0)
         {
             curHealth = 0;
@@ -83,6 +89,13 @@ public class Health : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    
+    public void ShowScrollingText(string message)
+    {
+        var scrollingText = Instantiate(this.scrollingText, this.transform.position, Quaternion.identity);
+        scrollingText.GetComponent<TextMesh>().text = message;
+    }
+    
 
     // Update is called once per frame
     void Update()
@@ -96,7 +109,8 @@ public class Health : MonoBehaviour
                 Time.timeScale = 0f;
                 gameObject.GetComponent<SpriteRenderer>().enabled = false;
             }
-            else{
+            else
+            {
                 Destroy(gameObject);
             }
         }
