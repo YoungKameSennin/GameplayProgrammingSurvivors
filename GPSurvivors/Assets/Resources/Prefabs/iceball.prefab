@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4898369503596338236}
   - component: {fileID: 927738836785842861}
   - component: {fileID: -2111502087169438925}
-  - component: {fileID: -3106731427816445425}
   - component: {fileID: 6610261048895309010}
   - component: {fileID: 8472595884658553855}
   - component: {fileID: -7661453970970901532}
@@ -97,7 +96,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2183754706625256251}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: bd4f5ed59e3aaf34884191e42789f5e4, type: 2}
   m_CullingMode: 0
@@ -110,21 +109,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &-3106731427816445425
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2183754706625256251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4769fc8b1aaabc645b92285a14971d66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 50
-  speed: 5
-  rotateSpeed: 200
 --- !u!58 &6610261048895309010
 CircleCollider2D:
   m_ObjectHideFlags: 0
