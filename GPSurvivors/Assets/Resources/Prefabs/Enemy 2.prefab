@@ -505,7 +505,7 @@ GameObject:
   - component: {fileID: 3977311467296693521}
   - component: {fileID: 6906832463414783531}
   m_Layer: 7
-  m_Name: Enemy
+  m_Name: Enemy 2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -568,7 +568,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: 21300016, guid: 5d5bd6729f8c27d49bff6bb50ade020c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 49a7c96411b6df642b3dc6cce6bd0247, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -599,8 +599,6 @@ MonoBehaviour:
   hpBottlePrefab: {fileID: 2129480677606562997, guid: 3d3100128c0d8b3428d603f12d28ff69,
     type: 3}
   hpBottleChance: 3
-  scrollingText: {fileID: 363838215371788088, guid: d1e346cfa2ae64e71aba55880030ad92,
-    type: 3}
 --- !u!114 &9015788584188126123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -652,7 +650,7 @@ Animator:
   m_GameObject: {fileID: 7890526835255193365}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: dd57385b9820bad449f286da312af674, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5e17430d31438c04cb21d21add11782c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -699,7 +697,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.875, y: 2.25}
+    oldSize: {x: 2.375, y: 2.5}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

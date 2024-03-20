@@ -43103,6 +43103,84 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1972166185}
   m_CullTransparentMesh: 1
+--- !u!1001 &2033183474
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -4632370559931364080, guid: 3d3100128c0d8b3428d603f12d28ff69,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: -4632370559931364080, guid: 3d3100128c0d8b3428d603f12d28ff69,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 149704615783819092, guid: 3d3100128c0d8b3428d603f12d28ff69,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.2027898
+      objectReference: {fileID: 0}
+    - target: {fileID: 149704615783819092, guid: 3d3100128c0d8b3428d603f12d28ff69,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.304806
+      objectReference: {fileID: 0}
+    - target: {fileID: 149704615783819092, guid: 3d3100128c0d8b3428d603f12d28ff69,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 149704615783819092, guid: 3d3100128c0d8b3428d603f12d28ff69,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 149704615783819092, guid: 3d3100128c0d8b3428d603f12d28ff69,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 149704615783819092, guid: 3d3100128c0d8b3428d603f12d28ff69,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 149704615783819092, guid: 3d3100128c0d8b3428d603f12d28ff69,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 149704615783819092, guid: 3d3100128c0d8b3428d603f12d28ff69,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 149704615783819092, guid: 3d3100128c0d8b3428d603f12d28ff69,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 149704615783819092, guid: 3d3100128c0d8b3428d603f12d28ff69,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2129480677606562997, guid: 3d3100128c0d8b3428d603f12d28ff69,
+        type: 3}
+      propertyPath: m_Name
+      value: HPbot
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3d3100128c0d8b3428d603f12d28ff69, type: 3}
 --- !u!1 &2036187317
 GameObject:
   m_ObjectHideFlags: 0
@@ -43113,7 +43191,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2036187319}
   - component: {fileID: 2036187320}
-  - component: {fileID: 2036187321}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -43148,10 +43225,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da3423c45944031409af113d0173a230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicMixerGroup: {fileID: -7802871821760928576, guid: 20c2fc25cc8a72d439ece44caa80010d,
-    type: 2}
-  sfxMixerGroup: {fileID: -5514887378846270790, guid: 20c2fc25cc8a72d439ece44caa80010d,
-    type: 2}
+  musicMixerGroup: {fileID: 0}
+  sfxMixerGroup: {fileID: 0}
   musicTracks:
   - clip: {fileID: 8300000, guid: af51277f059d39b44b4e12ff6879830d, type: 3}
     audioSource: {fileID: 0}
@@ -43159,24 +43234,6 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 1
-  - clip: {fileID: 0}
-    audioSource: {fileID: 0}
-    title: 
-    volume: 0
-    pitch: 0
-    loop: 0
-  - clip: {fileID: 0}
-    audioSource: {fileID: 0}
-    title: 
-    volume: 0
-    pitch: 0
-    loop: 0
-  - clip: {fileID: 0}
-    audioSource: {fileID: 0}
-    title: 
-    volume: 0
-    pitch: 0
-    loop: 0
   sfxClips:
   - clip: {fileID: 8300000, guid: 79ec9f5650d6242bda8e1176d537c4db, type: 3}
     audioSource: {fileID: 0}
@@ -43184,7 +43241,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
-  - clip: {fileID: 8300000, guid: f78417a7777407c41a7b3817294f432c, type: 3}
+  - clip: {fileID: 8300000, guid: a627a483bb5394f048c40c9c07f9a783, type: 3}
     audioSource: {fileID: 0}
     title: Fire
     volume: 1
@@ -43208,19 +43265,6 @@ MonoBehaviour:
     volume: 0
     pitch: 0
     loop: 0
---- !u!114 &2036187321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2036187317}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0cd155357923411ba7f19902b04b13c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  musicTrack: Earth
 --- !u!1 &2072725234
 GameObject:
   m_ObjectHideFlags: 0
@@ -43355,6 +43399,8 @@ MonoBehaviour:
   hpBottlePrefab: {fileID: 2129480677606562997, guid: 3d3100128c0d8b3428d603f12d28ff69,
     type: 3}
   hpBottleChance: 3
+  scrollingText: {fileID: 363838215371788088, guid: d1e346cfa2ae64e71aba55880030ad92,
+    type: 3}
 --- !u!50 &2072725239
 Rigidbody2D:
   serializedVersion: 4
@@ -43425,7 +43471,11 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
+<<<<<<< HEAD
   m_Size: {x: 0.62, y: 0.9}
+=======
+  m_Size: {x: 0.7, y: 0.7}
+>>>>>>> 60bc8588006cddf9d8a7697c2e4a5e06e2635572
   m_EdgeRadius: 0
 --- !u!95 &2072725241
 Animator:
@@ -43662,3 +43712,4 @@ SceneRoots:
   - {fileID: 290162231}
   - {fileID: 292988591}
   - {fileID: 1072201202}
+  - {fileID: 2033183474}
