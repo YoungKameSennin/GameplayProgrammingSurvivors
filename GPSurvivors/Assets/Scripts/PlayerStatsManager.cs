@@ -11,8 +11,8 @@ public class PlayerStatsManager : MonoBehaviour
 
     //public float ShieldTime = 20f;
     public float ShieldHealth = 50;
-    public GameObject shieldPrefab;
     public Transform playerPosition;
+    public ShieldManager shieldManager;
 
     public float health = 100;
     public float shootSpeed = 1.0f;
@@ -22,6 +22,8 @@ public class PlayerStatsManager : MonoBehaviour
 
     private float experiencePerGem = 30.0f;
     public UIExperienceBar uiExperienceBar;
+
+
     public enum UpgradeOption
     {
         IncreaseBullets,
@@ -42,6 +44,8 @@ public class PlayerStatsManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        shieldManager = GetComponent<ShieldManager>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -110,7 +114,7 @@ public class PlayerStatsManager : MonoBehaviour
                 break;
             case UpgradeOption.IncreaseShieldHealth:
                 ShieldHealth += 20f;
-                CheckAndActivateShield();
+                shieldManager.ActivateShield();
                 break;
         }
     }
@@ -123,25 +127,7 @@ public class PlayerStatsManager : MonoBehaviour
 
     //code related to Shield
 
-    bool IsShieldActive()
-    {
-        Shield existingShield = FindObjectOfType<Shield>();
-        return existingShield != null && existingShield.isActiveAndEnabled;
-    }
-    void CheckAndActivateShield()
-    {
-        Debug.Log("CheckAndActivateShield called");
-        if (ShieldHealth > 0 && !IsShieldActive())
-        {
-            Debug.Log("Trying to instantiate shield");
-            GameObject shieldGameObject = Instantiate(shieldPrefab, playerPosition.position, Quaternion.identity);
-            Shield shieldComponent = shieldGameObject.GetComponent<Shield>();
-            if (shieldComponent != null)
-            {
-                shieldComponent.ActivateShield();
-            }
-        }
-    }
+   
 }
 
 

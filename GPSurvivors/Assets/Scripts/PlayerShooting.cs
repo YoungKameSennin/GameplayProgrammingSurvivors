@@ -43,6 +43,7 @@ public class PlayerShooting : MonoBehaviour
             {
                 yield break;
             }
+            FindObjectOfType<SoundManager>().PlaySoundEffect("Fire");
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
 
             Vector3 direction = nearestEnemy.transform.position - firePoint.position;
@@ -54,7 +55,7 @@ public class PlayerShooting : MonoBehaviour
                 bullet.GetComponent<Bullet>().SetTarget(nearestEnemy.transform);
             }
 
-            yield return new WaitForSeconds(0.06f);
+            yield return new WaitForSeconds(0.09f);
         }
     }
 

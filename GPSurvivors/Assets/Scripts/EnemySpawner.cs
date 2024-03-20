@@ -43,6 +43,7 @@ public class EnemySpawner : MonoBehaviour
         if (enemyPrefabs.Length > 0)
         {
             int prefabIndex = Random.Range(0, enemyPrefabs.Length);
+            FindObjectOfType<SoundManager>().PlaySoundEffect("Spawn");
             Instantiate(enemyPrefabs[prefabIndex], spawnPosition, Quaternion.identity);
         }
     }
