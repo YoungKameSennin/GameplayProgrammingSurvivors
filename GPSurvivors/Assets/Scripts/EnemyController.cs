@@ -17,13 +17,14 @@ public class EnemyController : MonoBehaviour
     {
         player = GameObject.Find("Player");
     }
+
     void Start() 
     {
-        // Ignore collision between the spawned itemPrefab and all GameObjects tagged as "Enemy"
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Gem");
-        foreach (GameObject enemy in enemies)
+        // Ignore collision between the spawned gem and all enemies
+        GameObject[] Gems = GameObject.FindGameObjectsWithTag("Gem");
+        foreach (GameObject gem in Gems)
         {
-            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), enemy.GetComponent<Collider2D>(), true);
+            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), gem.GetComponent<Collider2D>(), true);
         }
     }
 
@@ -57,8 +58,14 @@ public class EnemyController : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().flipX = false;
         }
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.CompareTag("hpBottle"))
+        {
+            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.gameObject.GetComponent<Collider2D>(), true);
+        }
+
         if (collision.gameObject.CompareTag("Player"))
         {
             animator.SetBool("IsHit", true);

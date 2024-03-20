@@ -8,12 +8,14 @@ public class Health : MonoBehaviour
     [SerializeField] public float curHealth = 100.0f;
     [SerializeField] public float maxHealth = 100.0f;
     [SerializeField] private Slider healthBar;
-    
-    [SerializeField] private GameObject itemPrefab;
+    [SerializeField] private GameObject gemPrefab;
+    [SerializeField] private GameObject hpBottlePrefab;
+    [SerializeField] private int hpBottleChance = 3;
 
     // Start is called before the first frame update
     void Start()
     {
+        // Set the player's health to max
         curHealth = maxHealth;
     }
 
@@ -31,42 +33,6 @@ public class Health : MonoBehaviour
         }
     }
 
-    void Die()
-    {
-        if (itemPrefab != null)
-        {
-            GameObject item = Instantiate(itemPrefab, transform.position, Quaternion.identity);
-
-            item.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f); 
-
-            // Ignore collision between the spawned itemPrefab and all GameObjects tagged as "Enemy"
-            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-            foreach (GameObject enemy in enemies)
-            {
-                Physics2D.IgnoreCollision(item.GetComponent<Collider2D>(), enemy.GetComponent<Collider2D>(), true);
-            }
-
-            // Access the Rigidbody component of the instantiated item, if it exists
-            Rigidbody2D itemRigidbody = item.GetComponent<Rigidbody2D>();
-
-            if (itemRigidbody != null)
-            {
-                // Set the gravity scale of the Rigidbody to 0 so that the item won't move
-                itemRigidbody.gravityScale = 0f;
-            }
-        }
-        if(gameObject.tag == "Player")
-        {
-            // Stop the time
-            Time.timeScale = 0f;
-            gameObject.GetComponent<SpriteRenderer>().enabled = false;
-        }
-        else{
-            Destroy(gameObject);
-        }
-        
-    }
-
     public void Heal(float healAmount)
     {
         if (curHealth + healAmount >= maxHealth)
@@ -76,6 +42,45 @@ public class Health : MonoBehaviour
         else
         {
             curHealth += healAmount;
+        }
+    }
+
+    private void Die()
+    {
+        if (gemPrefab != null)
+        {
+            // drop gem
+            GameObject gemSpawned = Instantiate(gemPrefab, transform.position, Quaternion.identity);
+
+            Rigidbody2D gemRigidbody = gemSpawned.GetComponent<Rigidbody2D>();
+            if (gemRigidbody != null)
+            {
+                gemRigidbody.gravityScale = 0f;
+            }
+
+            // Drop hp bottle
+            // Spawn HP bottle with a chance
+            int randomChance = Random.Range(0, hpBottleChance);
+            if (randomChance == 0)
+            {
+                GameObject hpBottleSpawned = Instantiate(hpBottlePrefab, transform.position + Vector3.up, Quaternion.identity);
+                // Make the gravity of the hp bottle to 0, so that it won't move
+                Rigidbody2D hpBottleRigidbody = hpBottleSpawned.GetComponent<Rigidbody2D>();
+                if (hpBottleRigidbody != null)
+                {
+                    hpBottleRigidbody.gravityScale = 0f;
+                }
+            }
+        }
+
+        if (gameObject.CompareTag("Player"))
+        {
+            Time.timeScale = 0f;
+            gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        }
+        else
+        {
+            Destroy(gameObject);
         }
     }
 

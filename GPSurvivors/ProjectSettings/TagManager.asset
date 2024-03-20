@@ -11,6 +11,7 @@ TagManager:
   - Captain
   - Enemy
   - Edge
+  - hpBottle
   layers:
   - Default
   - TransparentFX
