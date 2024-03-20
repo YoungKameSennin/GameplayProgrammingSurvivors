@@ -43113,7 +43113,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2036187319}
   - component: {fileID: 2036187320}
-  - component: {fileID: 2036187321}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -43164,7 +43163,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
-  - clip: {fileID: 8300000, guid: f78417a7777407c41a7b3817294f432c, type: 3}
+  - clip: {fileID: 8300000, guid: a627a483bb5394f048c40c9c07f9a783, type: 3}
     audioSource: {fileID: 0}
     title: Fire
     volume: 1
@@ -43188,19 +43187,6 @@ MonoBehaviour:
     volume: 0
     pitch: 0
     loop: 0
---- !u!114 &2036187321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2036187317}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0cd155357923411ba7f19902b04b13c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  musicTrack: Earth
 --- !u!1 &2072725234
 GameObject:
   m_ObjectHideFlags: 0
