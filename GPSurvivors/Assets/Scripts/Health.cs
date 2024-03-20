@@ -55,7 +55,16 @@ public class Health : MonoBehaviour
                 itemRigidbody.gravityScale = 0f;
             }
         }
-        Destroy(gameObject);
+        if(gameObject.tag == "Player")
+        {
+            // Stop the time
+            Time.timeScale = 0f;
+            gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        }
+        else{
+            Destroy(gameObject);
+        }
+        
     }
 
     public void Heal(float healAmount)
@@ -80,8 +89,11 @@ public class Health : MonoBehaviour
             {
                 // Stop the time
                 Time.timeScale = 0f;
+                gameObject.GetComponent<SpriteRenderer>().enabled = false;
             }
-            Destroy(gameObject);
+            else{
+                Destroy(gameObject);
+            }
         }
     }
 }
