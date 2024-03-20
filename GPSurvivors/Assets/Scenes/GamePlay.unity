@@ -1353,7 +1353,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -43225,8 +43225,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da3423c45944031409af113d0173a230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicMixerGroup: {fileID: 0}
-  sfxMixerGroup: {fileID: 0}
+  musicMixerGroup: {fileID: -7802871821760928576, guid: 20c2fc25cc8a72d439ece44caa80010d,
+    type: 2}
+  sfxMixerGroup: {fileID: -5514887378846270790, guid: 20c2fc25cc8a72d439ece44caa80010d,
+    type: 2}
   musicTracks:
   - clip: {fileID: 8300000, guid: af51277f059d39b44b4e12ff6879830d, type: 3}
     audioSource: {fileID: 0}
