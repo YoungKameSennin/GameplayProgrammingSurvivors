@@ -43,6 +43,7 @@ public class PlayerShooting : MonoBehaviour
             {
                 yield break;
             }
+            FindObjectOfType<SoundManager>().PlaySoundEffect("Fire");
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
 
             Vector3 direction = nearestEnemy.transform.position - firePoint.position;

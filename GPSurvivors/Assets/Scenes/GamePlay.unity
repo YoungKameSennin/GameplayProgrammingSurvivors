@@ -43256,17 +43256,17 @@ MonoBehaviour:
     pitch: 0
     loop: 0
   sfxClips:
-  - clip: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 79ec9f5650d6242bda8e1176d537c4db, type: 3}
     audioSource: {fileID: 0}
-    title: 
-    volume: 0
-    pitch: 0
+    title: Spawn
+    volume: 1
+    pitch: 1
     loop: 0
-  - clip: {fileID: 0}
+  - clip: {fileID: 8300000, guid: f78417a7777407c41a7b3817294f432c, type: 3}
     audioSource: {fileID: 0}
-    title: 
-    volume: 0
-    pitch: 0
+    title: Fire
+    volume: 1
+    pitch: 1
     loop: 0
   - clip: {fileID: 0}
     audioSource: {fileID: 0}
@@ -43538,7 +43538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edaff8a5f6ee87541aa3c793ca8255d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 8166074427350919949, guid: c3ec90b1674efb547b2e0d8e70514c6d,
+  bulletPrefab: {fileID: 5005564517564955526, guid: 50f39bfdec805884dbffef2e6557975f,
     type: 3}
   firePoint: {fileID: 2072725236}
   shootInterval: 1.2
