@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6413295540674177646}
   - component: {fileID: 4688096018301108754}
-  - component: {fileID: 3372356235122795469}
+  - component: {fileID: 5441284161007749117}
   m_Layer: 0
   m_Name: fireball
   m_TagString: Untagged
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &3372356235122795469
+--- !u!95 &5441284161007749117
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -97,7 +97,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 3a95b8e88c64cb44c95d50efbac2c27a, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 2
+  m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
