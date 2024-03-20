@@ -47,7 +47,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 500be9bd20331014f817095e70e438a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
 --- !u!58 &1051073905410132978
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -60,10 +59,10 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
