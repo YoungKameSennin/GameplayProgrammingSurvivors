@@ -714,7 +714,7 @@ MonoBehaviour:
     type: 3}
   shootInterval: 4
   codeInterval: 10
-  bulletsPerShot: 10
+  bulletsPerShot: 20
   animator: {fileID: 3977311467296693521}
   spriteRenderer: {fileID: 1358749507243102259}
   hitColor: {r: 1, g: 0, b: 0, a: 1}

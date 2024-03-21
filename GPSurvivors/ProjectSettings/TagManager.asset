@@ -19,6 +19,7 @@ TagManager:
   - ICEball
   - TABullet
   - Code
+  - Shield
   layers:
   - Default
   - TransparentFX

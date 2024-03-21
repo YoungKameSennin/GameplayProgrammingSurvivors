@@ -25,7 +25,11 @@ public class TABullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        
+        if (collision.gameObject.tag == "Shield")
+        {
+            Destroy(gameObject);
+        }
+
     }
 
 
