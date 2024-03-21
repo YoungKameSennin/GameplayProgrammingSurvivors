@@ -18,9 +18,9 @@ public class EnemySpawner : MonoBehaviour
     private float spawnTimer = 0.0f;
     private PlayerStatsManager playerStatsManager;
     private bool TASpawned = false;
-    private bool TADefeated = false;
+    public bool TADefeated = false;
     private bool ProfSpawned = false;
-    private bool ProfDefeated = false;
+    public bool ProfDefeated = false;
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +39,7 @@ public class EnemySpawner : MonoBehaviour
             {
                 SpawnTA();
             }
-            else if (TADefeated)
+            else if (!ProfSpawned && TADefeated && !ProfDefeated)
             {
                 SpawnProf();
             }
@@ -81,7 +81,9 @@ public class EnemySpawner : MonoBehaviour
             spawnPosition = player.transform.position + new Vector3(xOffset, yOffset, 0);
         }
 
-        Instantiate(TAPrefab, spawnPosition, Quaternion.identity);
+        var TA = Instantiate(TAPrefab, spawnPosition, Quaternion.identity);
+        TA.GetComponent<Health>().maxHealth = 500;
+        TA.GetComponent<Health>().curHealth = 500;
         TASpawned = true;
         TADefeated = false;
     }

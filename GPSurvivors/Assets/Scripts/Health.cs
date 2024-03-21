@@ -81,9 +81,22 @@ public class Health : MonoBehaviour
         if (gameObject.CompareTag("Player"))
         {
             Time.timeScale = 0f;
-        } else {
+        }
+        else
+        {
             Destroy(gameObject);
         }
+        if (gameObject.name == "TA_temp(Clone)")
+        {
+            Debug.Log("TA Defeated");
+            FindObjectOfType<EnemySpawner>().TADefeated = true;
+        } else if (gameObject.name == "Prof_temp(Clone)")
+        {
+            Debug.Log("Prof Defeated");
+            FindObjectOfType<EnemySpawner>().ProfDefeated = true;
+            Time.timeScale = 0f;
+        }
+
 
     }
 
