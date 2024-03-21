@@ -7,6 +7,7 @@ public class PlayerShooting : MonoBehaviour
 {
     public GameObject bulletPrefab;
     public GameObject iceballPrefab;
+    public GameObject APbulletPrefab;
     public Transform firePoint;
     private GameObject currentTarget;
     public float shootInterval = 1.2f;
@@ -36,6 +37,10 @@ public class PlayerShooting : MonoBehaviour
             if (PlayerStatsManager.Instance.iceballCount > 0)
             {
                 StartCoroutine(ShootIceballs(PlayerStatsManager.Instance.iceballCount, nearestEnemy));
+            }
+            if (PlayerStatsManager.Instance.APbulletCount > 0)
+            {
+                StartCoroutine(ShootAPbullet(PlayerStatsManager.Instance.APbulletCount, nearestEnemy));
             }
         }
     }
@@ -83,6 +88,30 @@ public class PlayerShooting : MonoBehaviour
             if (iceball.GetComponent<Bullet>() != null)
             {
                 iceball.GetComponent<Bullet>().SetTarget(nearestEnemy.transform);
+            }
+
+            yield return new WaitForSeconds(0.15f);
+        }
+    }
+
+    IEnumerator ShootAPbullet(int APbulletCount, GameObject nearestEnemy)
+    {
+
+        yield return new WaitForSeconds(PlayerStatsManager.Instance.bulletsPerShoot * 0.09f);
+
+        for (int i = 0; i < APbulletCount; i++)
+        {
+            if (nearestEnemy == null)
+                yield break;
+            Debug.Log("instance AP");
+            GameObject AP = Instantiate(APbulletPrefab, firePoint.position, Quaternion.identity);
+            Vector3 direction = nearestEnemy.transform.position - firePoint.position;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            AP.transform.rotation = Quaternion.Euler(0f, 0f, angle - 90);
+
+            if (AP.GetComponent<APbullet>() != null)
+            {
+                AP.GetComponent<APbullet>().SetTarget(nearestEnemy.transform);
             }
 
             yield return new WaitForSeconds(0.15f);

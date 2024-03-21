@@ -26,6 +26,7 @@ public class PlayerStatsManager : MonoBehaviour
     public int iceballCount = 0;
 
     public int MarryGoRoundCount = 0;
+    public int APbulletCount = 0;
 
 
 
@@ -34,7 +35,8 @@ public class PlayerStatsManager : MonoBehaviour
         IncreaseBullets,
         IncreaseShieldHealth,
         IncreaseIceBall,
-        IncreaseMarryGoRound
+        IncreaseMarryGoRound,
+        IncreaseAPbullet
         // 可以添加更多技能提升选项
     }
 
@@ -69,7 +71,7 @@ public class PlayerStatsManager : MonoBehaviour
         {
             LevelUp();
             currentExperience -= maxExperience;
-            maxExperience *= 2.8f; 
+            maxExperience *= 1.1f; 
         }
 
         uiExperienceBar.UpdateExperienceUI(currentExperience, maxExperience);
@@ -91,7 +93,8 @@ public class PlayerStatsManager : MonoBehaviour
             UpgradeOption.IncreaseBullets,
             UpgradeOption.IncreaseShieldHealth,
             UpgradeOption.IncreaseIceBall,
-            UpgradeOption.IncreaseMarryGoRound
+            UpgradeOption.IncreaseMarryGoRound,
+            UpgradeOption.IncreaseAPbullet
         };
 
         List<UpgradeOption> chosenOptions = new List<UpgradeOption>();
@@ -121,6 +124,10 @@ public class PlayerStatsManager : MonoBehaviour
             case UpgradeOption.IncreaseMarryGoRound:
                 MarryGoRoundCount += 2;
                 FindObjectOfType<MerryGoRound>().UpdateBullets();
+                break;
+            case UpgradeOption.IncreaseAPbullet:
+                Debug.Log("AP!!!!!");
+                APbulletCount += 1;
                 break;
 
         }
