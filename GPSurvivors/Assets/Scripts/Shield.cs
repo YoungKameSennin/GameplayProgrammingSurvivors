@@ -26,6 +26,11 @@ public class Shield : MonoBehaviour
             Debug.Log("Enemy hit the shield, applying damage.");
             ApplyDamage(10);
         }
+        if (collision.gameObject.tag == "TABullet")
+        {
+            Debug.Log("Enemy hit the shield, applying damage.");
+            ApplyDamage(30);
+        }
     }
 
     private void ApplyDamage(float damage)
