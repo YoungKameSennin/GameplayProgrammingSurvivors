@@ -44,7 +44,8 @@ public class EnemySpawner : MonoBehaviour
                 SpawnProf();
             }
         }
-        else if (spawnTimer >= spawnRate)
+        
+        if (spawnTimer >= spawnRate)
         {
             spawnTimer = 0.0f;
             SpawnEnemy();
@@ -179,7 +180,7 @@ public class EnemySpawner : MonoBehaviour
                 Instantiate(enemyPrefabs1[prefabIndex1], spawnPosition1, Quaternion.identity);
                 Instantiate(enemyPrefabs2[prefabIndex2], spawnPosition2, Quaternion.identity);
             }
-            else if (playerStatsManager.level < 7)
+            else
             {
                 Instantiate(enemyPrefabs1[prefabIndex1], spawnPosition1, Quaternion.identity);
                 Instantiate(enemyPrefabs2[prefabIndex2], spawnPosition2, Quaternion.identity);

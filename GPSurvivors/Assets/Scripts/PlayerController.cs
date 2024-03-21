@@ -19,7 +19,6 @@ public class PlayerController : MonoBehaviour
     private Vector3 originalPosition;
     private Health health;
     public int GemCount = 0;
-    private int GemCountLastFrame = 0;
 
     public PlayerStatsManager playerStatsManager;
     public int nextLevel = 2;
