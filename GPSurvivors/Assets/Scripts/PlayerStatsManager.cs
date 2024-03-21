@@ -44,6 +44,8 @@ public class PlayerStatsManager : MonoBehaviour
     public TMP_Text textMesh1;
     public TMP_Text textMesh2;
     public TMP_Text textMesh3;
+    List<UpgradeOption> options;
+    public Transform LevelUpUI;
 
 
     void Awake()
@@ -92,7 +94,7 @@ public class PlayerStatsManager : MonoBehaviour
     {
         level++;
 
-        List<UpgradeOption> options = GetRandomUpgradeOptions();
+        options = GetRandomUpgradeOptions();
         switch (options[0])
         {
             case UpgradeOption.IncreaseBullets:
@@ -149,7 +151,7 @@ public class PlayerStatsManager : MonoBehaviour
                 textMesh3.text = "AP Bullet + 1";
                 break;
         }
-        //ApplyUpgrade(1);
+
     }
 
     List<UpgradeOption> GetRandomUpgradeOptions()
@@ -199,13 +201,29 @@ public class PlayerStatsManager : MonoBehaviour
         }
     }
 
+    public void OnClickButton1()
+    {
+        ApplyUpgrade(options[0]);
+        level++;
+        Time.timeScale = 1f;
+        LevelUpUI.gameObject.SetActive(false);
+    }
 
+    public void OnClickButton2()
+    {
+        ApplyUpgrade(options[1]);
+        level++;
+        gameObject.GetComponent<PlayerController>().nextLevel++;
+        LevelUpUI.gameObject.SetActive(false);
+    }
 
-
-
-
-
-
+    public void OnClickButton3()
+    {
+        ApplyUpgrade(options[2]);
+        level++;
+        gameObject.GetComponent<PlayerController>().nextLevel++;
+        LevelUpUI.gameObject.SetActive(false);
+    }
 
 }
 
