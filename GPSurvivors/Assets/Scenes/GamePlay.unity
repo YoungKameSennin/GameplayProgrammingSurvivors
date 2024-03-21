@@ -2540,7 +2540,7 @@ MonoBehaviour:
     type: 3}
   ProfPrefab: {fileID: 7890526835255193365, guid: 53835574ef5df4dc7bf2835eb51a7ff2,
     type: 3}
-  spawnRate: 1
+  spawnRate: 1.17
   spawnRadius: 10
   tilemap: {fileID: 1952662221}
   TADefeated: 0
@@ -43610,7 +43610,7 @@ MonoBehaviour:
   APbulletPrefab: {fileID: 661788903879832824, guid: dd5763e92c7744643a9abc31d140e8c1,
     type: 3}
   firePoint: {fileID: 2072725236}
-  shootInterval: 1.2
+  shootInterval: 1
 --- !u!114 &2072725243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43639,7 +43639,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 1
   bulletsPerShoot: 2
-  ShieldHealth: 200
+  ShieldHealth: 300
   playerPosition: {fileID: 2072725236}
   shieldManager: {fileID: 2072725245}
   health: 200
@@ -43647,7 +43647,7 @@ MonoBehaviour:
   currentExperience: 0
   maxExperience: 50
   experiencePerGem: 15
-  experiencePerCode: 200
+  experiencePerCode: 500
   uiExperienceBar: {fileID: 515351435}
   iceballCount: 0
   MarryGoRoundCount: 0
@@ -43688,7 +43688,7 @@ MonoBehaviour:
     type: 3}
   rotationSpeed: 100
   distanceFromPlayer: 3
-  respawnDelay: 9
+  respawnDelay: 3.8
 --- !u!1 &2091220814
 GameObject:
   m_ObjectHideFlags: 0

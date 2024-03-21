@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class MerryGoRound : MonoBehaviour
 {
-    public GameObject bulletPrefab; 
-    public float rotationSpeed = 100f; 
+    public GameObject bulletPrefab;
+    public float rotationSpeed = 100f;
     public float distanceFromPlayer = 3f;
-    public float respawnDelay = 9f;
+    public float respawnDelay = 3.8f;
 
+    private Coroutine respawnCoroutine = null;
     private List<GameObject> bullets = new List<GameObject>();
 
     public void UpdateBullets()
@@ -17,14 +18,14 @@ public class MerryGoRound : MonoBehaviour
         {
             Destroy(bullet);
         }
-        bullets.Clear(); 
+        bullets.Clear();
 
         SpawnBullets();
     }
 
     void Update()
     {
-        
+
         foreach (GameObject bullet in bullets)
         {
             if (bullet != null)
@@ -44,7 +45,7 @@ public class MerryGoRound : MonoBehaviour
             float angleInRadians = currentAngle * Mathf.Deg2Rad;
             Vector3 bulletPosition = PlayerStatsManager.Instance.playerPosition.position +
                                      new Vector3(Mathf.Cos(angleInRadians), Mathf.Sin(angleInRadians), 0) * distanceFromPlayer;
-           
+
             GameObject bullet = Instantiate(bulletPrefab, bulletPosition, Quaternion.identity, this.transform);
             bullets.Add(bullet);
         }
@@ -59,12 +60,23 @@ public class MerryGoRound : MonoBehaviour
     public void BulletDestroyed(GameObject bullet)
     {
         bullets.Remove(bullet);
-        StartCoroutine(RespawnBulletAfterDelay());
+        if (respawnCoroutine == null)
+        {
+            // 如果当前没有协程在运行，则启动一个新的协程
+            respawnCoroutine = StartCoroutine(RespawnBulletAfterDelay());
+        }
+        else
+        {
+            // 如果已经有一个协程在运行，那么重置计时器
+            StopCoroutine(respawnCoroutine); // 停止当前协程
+            respawnCoroutine = StartCoroutine(RespawnBulletAfterDelay()); // 重新启动协程以重置计时
+        }
     }
 
     IEnumerator RespawnBulletAfterDelay()
     {
         yield return new WaitForSeconds(respawnDelay);
-        UpdateBullets();
+        UpdateBullets(); // 更新子弹状态
+        respawnCoroutine = null; // 重置协程变量，表示当前没有协程在运行
     }
 }
