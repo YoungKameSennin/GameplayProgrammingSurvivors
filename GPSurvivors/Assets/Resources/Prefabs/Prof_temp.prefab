@@ -591,8 +591,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01de65d15cd3c40c6b479dc578d11d39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curHealth: 10000
-  maxHealth: 10000
+  curHealth: 100
+  maxHealth: 100
   healthBar: {fileID: 33642030428800588}
   gemPrefab: {fileID: 7430569447165051818, guid: 8696b598a26aaf141abd683312c677d1,
     type: 3}

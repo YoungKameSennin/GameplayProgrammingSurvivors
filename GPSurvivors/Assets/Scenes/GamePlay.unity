@@ -43579,7 +43579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 1
-  bulletsPerShoot: 0
+  bulletsPerShoot: 1
   ShieldHealth: 100
   playerPosition: {fileID: 2072725236}
   shieldManager: {fileID: 0}
