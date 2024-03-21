@@ -708,10 +708,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  bulletPrefab: {fileID: 8166074427350919949, guid: c3ec90b1674efb547b2e0d8e70514c6d,
+  bulletPrefab: {fileID: 8166074427350919949, guid: f939dcbf3944c81428538296c4076071,
+    type: 3}
+  codePrefab: {fileID: 7430569447165051818, guid: acabaf63428674f4e81369abbe431c62,
     type: 3}
   shootInterval: 4
-  bulletsPerShot: 10
+  codeInterval: 10
+  bulletsPerShot: 20
   animator: {fileID: 3977311467296693521}
   spriteRenderer: {fileID: 1358749507243102259}
   hitColor: {r: 1, g: 0, b: 0, a: 1}
