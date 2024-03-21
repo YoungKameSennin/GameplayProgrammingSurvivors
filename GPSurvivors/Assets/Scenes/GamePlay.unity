@@ -43219,6 +43219,7 @@ GameObject:
   - component: {fileID: 2072725243}
   - component: {fileID: 2072725244}
   - component: {fileID: 2072725245}
+  - component: {fileID: 2072725246}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -43484,6 +43485,7 @@ MonoBehaviour:
   maxExperience: 50
   uiExperienceBar: {fileID: 515351435}
   iceballCount: 0
+  MarryGoRoundCount: 0
 --- !u!114 &2072725245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43500,6 +43502,23 @@ MonoBehaviour:
     type: 3}
   shieldHealth: 100
   rechargeTime: 10
+--- !u!114 &2072725246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072725234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33a1d702604830849b0beb9842c91366, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 5005564517564955526, guid: 50f39bfdec805884dbffef2e6557975f,
+    type: 3}
+  rotationSpeed: 100
+  distanceFromPlayer: 3
+  respawnDelay: 9
 --- !u!1 &2091220814
 GameObject:
   m_ObjectHideFlags: 0
