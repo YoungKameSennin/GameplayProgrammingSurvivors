@@ -93,7 +93,8 @@ public class PlayerStatsManager : MonoBehaviour
     public void LevelUp()
     {
         level++;
-
+        Time.timeScale = 0f;
+        LevelUpUI.gameObject.SetActive(true);
         options = GetRandomUpgradeOptions();
         switch (options[0])
         {
@@ -204,7 +205,6 @@ public class PlayerStatsManager : MonoBehaviour
     public void OnClickButton1()
     {
         ApplyUpgrade(options[0]);
-        level++;
         Time.timeScale = 1f;
         LevelUpUI.gameObject.SetActive(false);
     }
@@ -212,16 +212,14 @@ public class PlayerStatsManager : MonoBehaviour
     public void OnClickButton2()
     {
         ApplyUpgrade(options[1]);
-        level++;
-        gameObject.GetComponent<PlayerController>().nextLevel++;
+        Time.timeScale = 1f;
         LevelUpUI.gameObject.SetActive(false);
     }
 
     public void OnClickButton3()
     {
         ApplyUpgrade(options[2]);
-        level++;
-        gameObject.GetComponent<PlayerController>().nextLevel++;
+        Time.timeScale = 1f;
         LevelUpUI.gameObject.SetActive(false);
     }
 

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 277357019353401576}
   - component: {fileID: 1489074900818879561}
   m_Layer: 8
-  m_Name: ScrollingText
+  m_Name: ProfScrollingText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -133,4 +133,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollingTextTime: 0.5
-  offset: {x: 0, y: 1.3, z: 0}
+  offset: {x: 0, y: 2.7, z: 0}

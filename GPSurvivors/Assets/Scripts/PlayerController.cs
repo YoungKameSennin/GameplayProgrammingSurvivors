@@ -91,12 +91,6 @@ public class PlayerController : MonoBehaviour
             GameOverUI.gameObject.SetActive(false);
             LevelUpUI.gameObject.SetActive(false);
         }
-        else if(playerStatsManager.level == nextLevel)
-        {
-            Time.timeScale = 0f;
-            LevelUpUI.gameObject.SetActive(true);
-            // GemCountLastFrame = GemCount;
-        }
     }
 
     public void OnClickRestartButton()
