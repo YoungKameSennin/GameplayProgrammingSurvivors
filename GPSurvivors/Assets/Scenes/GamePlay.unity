@@ -2594,6 +2594,10 @@ MonoBehaviour:
   enemyPrefabs4:
   - {fileID: 7890526835255193365, guid: fd186af31e7a5db49b37eff9fccfd99e, type: 3}
   player: {fileID: 2072725234}
+  TAPrefab: {fileID: 2392410845858759012, guid: db54e362ddd72604c9d72cae965ae9d8,
+    type: 3}
+  ProfPrefab: {fileID: 3125093301620040353, guid: 24f449961098f0e4d922fa25241a1ad5,
+    type: 3}
   spawnRate: 1
   spawnRadius: 5
   tilemap: {fileID: 1952662221}
