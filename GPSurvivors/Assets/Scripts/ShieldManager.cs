@@ -7,6 +7,10 @@ public class ShieldManager : MonoBehaviour
     public GameObject shieldPrefab; 
     private GameObject currentShield; 
     public float shieldHealth;
+    void Start()
+    {
+        ActivateShield();
+    }
 
     void Update()
     {
