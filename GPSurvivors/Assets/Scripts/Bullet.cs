@@ -9,17 +9,7 @@ public class Bullet : MonoBehaviour
     public float rotateSpeed = 200f;//adjust if needed
     private Transform target;
     private Vector2 lastDirection;
-    void Start()
-    {
-        // Ignore collision with player
-        Physics2D.IgnoreCollision(GetComponent<Collider2D>(), GameObject.Find("Player").GetComponent<Collider2D>(), true);
-        // Ignore collision between the spawned itemPrefab and all GameObjects tagged as "Enemy"
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Gem");
-        foreach (GameObject enemy in enemies)
-        {
-            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), enemy.GetComponent<Collider2D>(), true);
-        }
-    }
+    
 
     public void SetTarget(Transform newTarget)
     {
