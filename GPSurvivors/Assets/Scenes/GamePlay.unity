@@ -43586,6 +43586,8 @@ MonoBehaviour:
     type: 3}
   iceballPrefab: {fileID: 2183754706625256251, guid: 2d8164e9afa650d49b912884ecf818ad,
     type: 3}
+  APbulletPrefab: {fileID: 661788903879832824, guid: dd5763e92c7744643a9abc31d140e8c1,
+    type: 3}
   firePoint: {fileID: 2072725236}
   shootInterval: 1.2
 --- !u!114 &2072725243
@@ -43626,6 +43628,7 @@ MonoBehaviour:
   uiExperienceBar: {fileID: 515351435}
   iceballCount: 0
   MarryGoRoundCount: 0
+  APbulletCount: 0
 --- !u!114 &2072725245
 MonoBehaviour:
   m_ObjectHideFlags: 0

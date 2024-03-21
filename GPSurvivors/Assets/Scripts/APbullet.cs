@@ -9,17 +9,6 @@ public class APbullet : MonoBehaviour
     public float rotateSpeed = 200f;//adjust if needed
     private Transform target;
     private Vector2 lastDirection;
-    void Start()
-    {
-        // Ignore collision with player
-        Physics2D.IgnoreCollision(GetComponent<Collider2D>(), GameObject.Find("Player").GetComponent<Collider2D>(), true);
-        // Ignore collision between the spawned itemPrefab and all GameObjects tagged as "Enemy"
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Gem");
-        foreach (GameObject enemy in enemies)
-        {
-            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), enemy.GetComponent<Collider2D>(), true);
-        }
-    }
 
     public void SetTarget(Transform newTarget)
     {
@@ -30,9 +19,13 @@ public class APbullet : MonoBehaviour
     {
         if (target != null)
         {
+            // let bullet keep track the enemy
             Vector2 direction = (target.position - transform.position).normalized;
             lastDirection = direction;
-            GetComponent<Rigidbody2D>().velocity = lastDirection * speed;
+
+            float rotateAmount = Vector3.Cross(direction, transform.up).z;
+            GetComponent<Rigidbody2D>().angularVelocity = -rotateAmount * rotateSpeed;
+            GetComponent<Rigidbody2D>().velocity = transform.up * speed;
         }
         else
         {
@@ -47,11 +40,13 @@ public class APbullet : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             collision.gameObject.GetComponent<Health>().TakeDamage(damage);
+            Destroy(gameObject);
         }
         if (collision.gameObject.tag == "Edge")
         {
             Destroy(gameObject);
         }
+
     }
 
     void CheckIfOutOfCameraBounds()
