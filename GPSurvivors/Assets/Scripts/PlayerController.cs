@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     private int GemCountLastFrame = 0;
 
     public PlayerStatsManager playerStatsManager;
+    public int nextLevel = 2;
     public int LastFrameLevel = 1;
     void Awake()
     {
@@ -91,6 +92,12 @@ public class PlayerController : MonoBehaviour
             GameOverUI.gameObject.SetActive(false);
             LevelUpUI.gameObject.SetActive(false);
         }
+        else if(playerStatsManager.level == nextLevel)
+        {
+            Time.timeScale = 0f;
+            LevelUpUI.gameObject.SetActive(true);
+            // GemCountLastFrame = GemCount;
+        }
     }
 
     public void OnClickRestartButton()
@@ -116,6 +123,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnClickLevelUp()
     {
+        nextLevel ++;
         Time.timeScale = 1f;
         LevelUpUI.gameObject.SetActive(false);
     }
