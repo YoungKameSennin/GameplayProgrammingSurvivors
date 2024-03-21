@@ -2587,7 +2587,7 @@ MonoBehaviour:
   - {fileID: 7890526835255193365, guid: 328dcedf29b57cd4292bc9a490ab0f5b, type: 3}
   - {fileID: 7890526835255193365, guid: 521ed011eff6ea547b359d6b89f1944b, type: 3}
   enemyPrefabs2:
-  - {fileID: 7890526835255193365, guid: 9ac323f56544947bbb03fffe93bd6d6e, type: 3}
+  - {fileID: 7890526835255193365, guid: e0e5ef23aae76e446a91a547bb8b20a2, type: 3}
   enemyPrefabs3:
   - {fileID: 7890526835255193365, guid: fd186af31e7a5db49b37eff9fccfd99e, type: 3}
   - {fileID: 7890526835255193365, guid: d29c7f9cbb749f74d8a2f93bfbc42c90, type: 3}
@@ -43779,7 +43779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c907ae62e3d4eba4b90a5504069f37de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shieldPrefab: {fileID: 3747295795155575009, guid: abcf402e68d09ce48a2ffeab6737a361,
+  shieldPrefab: {fileID: 89177389424990263, guid: 2c72ca13004f211448a4639427d89b10,
     type: 3}
   shieldHealth: 100
   rechargeTime: 10
