@@ -569,7 +569,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: 2146381401, guid: 236f85183458358428806c7d66d6d825, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7365512a39453834d9dac6993c92ebf4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -686,14 +686,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.3, y: 0.59}
+    oldSize: {x: 2.4, y: 1.2}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.35, y: 0.65}
+  m_Size: {x: 0.6, y: 0.6}
   m_EdgeRadius: 0
 --- !u!114 &6798349278418440985
 MonoBehaviour:
@@ -708,9 +708,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  bulletPrefab: {fileID: 8166074427350919949, guid: c3ec90b1674efb547b2e0d8e70514c6d,
+  bulletPrefab: {fileID: 8166074427350919949, guid: f939dcbf3944c81428538296c4076071,
+    type: 3}
+  codePrefab: {fileID: 7430569447165051818, guid: acabaf63428674f4e81369abbe431c62,
     type: 3}
   shootInterval: 4
+  codeInterval: 10
   bulletsPerShot: 10
   animator: {fileID: 3977311467296693521}
   spriteRenderer: {fileID: 1358749507243102259}
