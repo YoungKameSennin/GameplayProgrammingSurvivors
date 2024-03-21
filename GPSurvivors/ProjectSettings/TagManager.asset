@@ -12,6 +12,7 @@ TagManager:
   - Enemy
   - Edge
   - hpBottle
+  - bullets
   layers:
   - Default
   - TransparentFX

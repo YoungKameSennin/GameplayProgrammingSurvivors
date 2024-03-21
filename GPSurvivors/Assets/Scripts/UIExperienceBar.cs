@@ -8,15 +8,15 @@ public class UIExperienceBar : MonoBehaviour
 {
     public Slider experienceSlider;
     public PlayerStatsManager statsManager;
-    //public TMP_Text timerText;
-    //private float timer = 0f;
+    public TMP_Text timerText;
+    private float timer = 0f;
 
     void Start()
     {
         experienceSlider.maxValue = statsManager.maxExperience;
         experienceSlider.value = statsManager.currentExperience;
     }
-    /*
+    
     void Update()
     {
         // Update the timer by adding the time passed since the last frame
@@ -29,7 +29,6 @@ public class UIExperienceBar : MonoBehaviour
         // Update the UI Text component to display the formatted timer value
         timerText.text = minutes + ":" + seconds;
     }
-    */
 
     public void SetExperience(float experience)
     {
