@@ -1835,7 +1835,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 00:00
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2587,11 +2587,11 @@ MonoBehaviour:
   - {fileID: 7890526835255193365, guid: 328dcedf29b57cd4292bc9a490ab0f5b, type: 3}
   - {fileID: 7890526835255193365, guid: 521ed011eff6ea547b359d6b89f1944b, type: 3}
   enemyPrefabs2:
+  - {fileID: 7890526835255193365, guid: 9ac323f56544947bbb03fffe93bd6d6e, type: 3}
+  enemyPrefabs3:
   - {fileID: 7890526835255193365, guid: fd186af31e7a5db49b37eff9fccfd99e, type: 3}
   - {fileID: 7890526835255193365, guid: d29c7f9cbb749f74d8a2f93bfbc42c90, type: 3}
   - {fileID: 7890526835255193365, guid: 22f0bad9ab6361e4b8a2a53b56cd24bb, type: 3}
-  enemyPrefabs3:
-  - {fileID: 7890526835255193365, guid: 521ed011eff6ea547b359d6b89f1944b, type: 3}
   enemyPrefabs4:
   - {fileID: 7890526835255193365, guid: fd186af31e7a5db49b37eff9fccfd99e, type: 3}
   player: {fileID: 2072725234}

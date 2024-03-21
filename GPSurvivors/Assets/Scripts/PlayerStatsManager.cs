@@ -69,7 +69,7 @@ public class PlayerStatsManager : MonoBehaviour
         {
             LevelUp();
             currentExperience -= maxExperience;
-            maxExperience *= 2.8f; 
+            maxExperience *= 1.1f; 
         }
 
         uiExperienceBar.UpdateExperienceUI(currentExperience, maxExperience);
