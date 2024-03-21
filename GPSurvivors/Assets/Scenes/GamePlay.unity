@@ -2482,7 +2482,7 @@ MonoBehaviour:
   ProfPrefab: {fileID: 7890526835255193365, guid: 53835574ef5df4dc7bf2835eb51a7ff2,
     type: 3}
   spawnRate: 1
-  spawnRadius: 5
+  spawnRadius: 10
   tilemap: {fileID: 1952662221}
   TADefeated: 0
   ProfDefeated: 0
@@ -30207,16 +30207,6 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: -22, y: 6, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 1
-      m_TileSpriteIndex: 0
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   - first: {x: -21, y: 6, z: 0}
     second:
       serializedVersion: 2
@@ -42981,17 +42971,17 @@ Tilemap:
   m_TileAssetArray:
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 3672
+  - m_RefCount: 3671
     m_Data: {fileID: 11400000, guid: d2d45b40ff159ae4a80cd0690fa9c589, type: 2}
   - m_RefCount: 0
     m_Data: {fileID: 0}
   m_TileSpriteArray:
-  - m_RefCount: 3672
+  - m_RefCount: 3671
     m_Data: {fileID: 21300000, guid: c347206643c0d514294fd0eb5d4d3496, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
   m_TileMatrixArray:
-  - m_RefCount: 3672
+  - m_RefCount: 3671
     m_Data:
       e00: 1
       e01: 0
@@ -43010,7 +43000,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 3672
+  - m_RefCount: 3671
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -43408,7 +43398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6db668aaa4c71422a910f2a0ac364a84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 8
   animator: {fileID: 2072725241}
   GameOverUI: {fileID: 988470510}
   LevelUpUI: {fileID: 292988591}
@@ -43429,8 +43419,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01de65d15cd3c40c6b479dc578d11d39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curHealth: 100
-  maxHealth: 100
+  curHealth: 200
+  maxHealth: 200
   healthBar: {fileID: 1758951749}
   gemPrefab: {fileID: 7430569447165051818, guid: 8696b598a26aaf141abd683312c677d1,
     type: 3}
@@ -43451,7 +43441,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.8
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -43579,15 +43569,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 1
-  bulletsPerShoot: 1
-  ShieldHealth: 100
+  bulletsPerShoot: 2
+  ShieldHealth: 200
   playerPosition: {fileID: 2072725236}
   shieldManager: {fileID: 0}
-  health: 100
+  health: 200
   shootSpeed: 1
   currentExperience: 0
   maxExperience: 50
-  experiencePerGem: 8
+  experiencePerGem: 15
   experiencePerCode: 200
   uiExperienceBar: {fileID: 515351435}
   iceballCount: 0
