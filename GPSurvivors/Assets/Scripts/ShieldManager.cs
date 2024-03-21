@@ -7,7 +7,7 @@ public class ShieldManager : MonoBehaviour
     public GameObject shieldPrefab; 
     private GameObject currentShield; 
     public float shieldHealth;
-
+    public float rechargeTime = 10f;
     void Update()
     {
         if (PlayerStatsManager.Instance != null && PlayerStatsManager.Instance.playerPosition != null)
@@ -43,6 +43,19 @@ public class ShieldManager : MonoBehaviour
             }
         }
     }
+    public void OnShieldDestroyed()
+    {
+        if (currentShield != null)
+        {
+            currentShield = null;
+            StartCoroutine(RechargeShield());
+        }
+    }
 
+    IEnumerator RechargeShield()
+    {
+        yield return new WaitForSeconds(rechargeTime); 
+        ActivateShield();
+    }
 
 }
