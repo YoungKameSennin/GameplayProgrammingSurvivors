@@ -3372,7 +3372,7 @@ GameObject:
   - component: {fileID: 1891768655}
   - component: {fileID: 1891768654}
   - component: {fileID: 1891768653}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tilemap
   m_TagString: Edge
   m_Icon: {fileID: 0}
@@ -43579,7 +43579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 1
-  bulletsPerShoot: 2
+  bulletsPerShoot: 0
   ShieldHealth: 100
   playerPosition: {fileID: 2072725236}
   shieldManager: {fileID: 0}
@@ -43587,6 +43587,8 @@ MonoBehaviour:
   shootSpeed: 1
   currentExperience: 0
   maxExperience: 50
+  experiencePerGem: 8
+  experiencePerCode: 200
   uiExperienceBar: {fileID: 515351435}
   iceballCount: 0
   MarryGoRoundCount: 0

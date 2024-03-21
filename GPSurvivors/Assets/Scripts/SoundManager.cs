@@ -66,10 +66,6 @@ public class SoundManager : MonoBehaviour
         
         track.audioSource.Play();
 
-        if(null != this.trackPlaying) {
-            this.trackPlaying.audioSource.Stop();
-        }   
-
         this.trackPlaying = track;
     }
 
@@ -85,18 +81,5 @@ public class SoundManager : MonoBehaviour
         }
 
         track.audioSource.Play();
-    }
-
-    public void StopSoundEffect(string title)
-    {
-        var track = this.sfxClips.Find(track => track.title == title);
-
-        if(null == track) 
-        {
-            Debug.Log("Sound track not found: " + title);
-            return;
-        }
-
-        track.audioSource.Stop();
     }
 }

@@ -6,9 +6,12 @@ public class TaController : MonoBehaviour
 {
     [SerializeField] private float speed = 2.0f;
     [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private GameObject codePrefab;
     [SerializeField] private float shootInterval = 4.0f;
-    [SerializeField] private int bulletsPerShot = 10;
-    private float shootTimer;
+    [SerializeField] private float codeInterval = 10.0f;
+    [SerializeField] private int bulletsPerShot = 20;
+    private float shootTimer= 0.0f;
+    private float codeTimer = 0.0f;
     private GameObject player;
     private Transform playerTransform;
 
@@ -67,10 +70,17 @@ public class TaController : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().flipX = false;
         }
         shootTimer += Time.deltaTime;
+        codeTimer += Time.deltaTime;
         if (shootTimer >= shootInterval)
         {
             ShootBarrage();
             shootTimer = 0;
+        }
+
+        if (codeTimer >= codeInterval)
+        {
+            Instantiate(codePrefab, transform.position, Quaternion.identity);
+            codeTimer = 0;
         }
     }
 

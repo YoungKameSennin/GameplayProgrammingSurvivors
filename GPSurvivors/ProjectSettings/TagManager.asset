@@ -17,6 +17,8 @@ TagManager:
   - Prof
   - AP
   - ICEball
+  - TABullet
+  - Code
   layers:
   - Default
   - TransparentFX
@@ -30,7 +32,7 @@ TagManager:
   - Exp
   - Shield
   - AttackLayer
-  - 
+  - TAFireball
   - 
   - 
   - 

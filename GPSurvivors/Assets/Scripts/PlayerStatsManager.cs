@@ -20,7 +20,9 @@ public class PlayerStatsManager : MonoBehaviour
     public float currentExperience = 0;
     public float maxExperience = 50;
 
-    private float experiencePerGem = 30.0f;
+    
+    [SerializeField] private float experiencePerGem = 8.0f;
+    [SerializeField]private float experiencePerCode = 80.0f;
     public UIExperienceBar uiExperienceBar;
 
     public int iceballCount = 0;
@@ -61,6 +63,11 @@ public class PlayerStatsManager : MonoBehaviour
             Destroy(collision.gameObject);
             AddExperience(experiencePerGem);
         }
+        if (collision.gameObject.CompareTag("Code"))
+        {
+            Destroy(collision.gameObject);
+            AddExperience(experiencePerCode);
+        }
     }
 
     public void AddExperience(float amount)
@@ -71,7 +78,7 @@ public class PlayerStatsManager : MonoBehaviour
         {
             LevelUp();
             currentExperience -= maxExperience;
-            maxExperience *= 1.1f; 
+            maxExperience *= 1.3f; 
         }
 
         uiExperienceBar.UpdateExperienceUI(currentExperience, maxExperience);

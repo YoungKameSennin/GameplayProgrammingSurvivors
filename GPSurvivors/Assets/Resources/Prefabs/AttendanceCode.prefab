@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 965748944171120965}
   - component: {fileID: 7509228373436301898}
   - component: {fileID: 3940617862464367666}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AttendanceCode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 1
   m_Sprite: {fileID: -1662934575, guid: a257ae48041dadb4682c082edc44ba23, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

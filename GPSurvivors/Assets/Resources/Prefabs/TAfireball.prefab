@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -640439891721787027}
   - component: {fileID: -2357619925025431309}
   - component: {fileID: 3902223896479218176}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: TAfireball
   m_TagString: bullets
   m_Icon: {fileID: 0}
@@ -161,6 +161,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fa9fee6c1a96004ca7065e2390c1ce4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 50
   speed: 5
-  rotateSpeed: 0

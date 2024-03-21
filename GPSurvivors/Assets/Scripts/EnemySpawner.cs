@@ -33,7 +33,7 @@ public class EnemySpawner : MonoBehaviour
     void Update()
     {
         spawnTimer += Time.deltaTime;
-        if (playerStatsManager.level >= 10)
+        if (playerStatsManager.level >= 1)
         {
             if (!TASpawned && !TADefeated)
             {
@@ -82,8 +82,8 @@ public class EnemySpawner : MonoBehaviour
         }
 
         var TA = Instantiate(TAPrefab, spawnPosition, Quaternion.identity);
-        TA.GetComponent<Health>().maxHealth = 500;
-        TA.GetComponent<Health>().curHealth = 500;
+        TA.GetComponent<Health>().maxHealth = 10000;
+        TA.GetComponent<Health>().curHealth = 10000;
         TASpawned = true;
         TADefeated = false;
     }
@@ -108,7 +108,9 @@ public class EnemySpawner : MonoBehaviour
             spawnPosition = player.transform.position + new Vector3(xOffset, yOffset, 0);
         }
 
-        Instantiate(ProfPrefab, spawnPosition, Quaternion.identity);
+        var Prof = Instantiate(ProfPrefab, spawnPosition, Quaternion.identity);
+        Prof.GetComponent<Health>().maxHealth = 30000;
+        Prof.GetComponent<Health>().curHealth = 30000;
         ProfSpawned = true;
         ProfDefeated = false;
     }
