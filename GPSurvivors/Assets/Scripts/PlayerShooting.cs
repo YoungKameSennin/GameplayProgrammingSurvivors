@@ -33,7 +33,7 @@ public class PlayerShooting : MonoBehaviour
         {
             StartCoroutine(ShootBullets(PlayerStatsManager.Instance.bulletsPerShoot, nearestEnemy));
 
-            if (PlayerStatsManager.Instance.iceballCount > 1)
+            if (PlayerStatsManager.Instance.iceballCount > 0)
             {
                 StartCoroutine(ShootIceballs(PlayerStatsManager.Instance.iceballCount, nearestEnemy));
             }
