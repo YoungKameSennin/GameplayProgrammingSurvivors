@@ -13,6 +13,11 @@ public class EnemyController : MonoBehaviour
     
     public Animator animator;
 
+    public SpriteRenderer spriteRenderer;
+    public Color hitColor = Color.red;
+    public float hitDuration = 0.5f;
+    private bool isHit = false;
+
     void Awake()
     {
         player = GameObject.Find("Player");
@@ -71,7 +76,27 @@ public class EnemyController : MonoBehaviour
             animator.SetBool("IsHit", true);
             StartCoroutine(HitCooldown());
         }
+
+        if (collision.gameObject.CompareTag("bullets"))
+        {
+            StartCoroutine(FlashColor());
+        }
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        // Check if the collider's gameObject belongs to the "attackLayer"
+        if (other.gameObject.layer == LayerMask.NameToLayer("attackLayer"))
+        {
+            StartCoroutine(FlashColor());
+        }
+        // Check if the collider's gameObject belongs to the "attackLayer" or is a trigger
+        if (other.CompareTag("bullets"))
+        {
+            StartCoroutine(FlashColor());
+        }
+    }
+
     private IEnumerator HitCooldown()
     {
         yield return new WaitForSeconds(0.05f); 
@@ -79,5 +104,17 @@ public class EnemyController : MonoBehaviour
         yield return new WaitForSeconds(0.5f); 
         animator.SetBool("IsHit", false);
         animator.SetBool("IsHitCooldown", false);
+    }
+
+    private IEnumerator FlashColor()
+    {
+        if (!isHit)
+        {
+            isHit = true;
+            spriteRenderer.color = hitColor;
+            yield return new WaitForSeconds(hitDuration);
+            spriteRenderer.color = Color.white;
+            isHit = false;
+        }
     }
 }

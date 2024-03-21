@@ -13,6 +13,8 @@ TagManager:
   - Edge
   - hpBottle
   - bullets
+  - TA
+  - Prof
   layers:
   - Default
   - TransparentFX
