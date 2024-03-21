@@ -9,7 +9,7 @@ public class TABullet : MonoBehaviour
     {
         // collision.gameObject is the reference to the collided object
         if (collision.gameObject.tag == "Player") {
-            collision.gameObject.GetComponent<Health>().TakeDamage(damage);
+            collision.gameObject.GetComponent<Health>().TakeDamage(20);
         }
         if (collision.gameObject.tag == "Edge")
         {
