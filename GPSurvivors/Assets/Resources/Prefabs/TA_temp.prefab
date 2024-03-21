@@ -504,6 +504,7 @@ GameObject:
   - component: {fileID: 3977311467296693521}
   - component: {fileID: 6906832463414783531}
   - component: {fileID: 6798349278418440985}
+  - component: {fileID: 9015788584188126123}
   m_Layer: 7
   m_Name: TA_temp
   m_TagString: Enemy
@@ -601,26 +602,6 @@ MonoBehaviour:
   hpBottleChance: 3
   scrollingText: {fileID: 363838215371788088, guid: d1e346cfa2ae64e71aba55880030ad92,
     type: 3}
-<<<<<<< HEAD
-=======
---- !u!114 &9015788584188126123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7890526835255193365}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4ceec4a6a06940ff9b1a8830f8c4526, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 2
-  animator: {fileID: 3977311467296693521}
-  spriteRenderer: {fileID: 1358749507243102259}
-  hitColor: {r: 1, g: 0, b: 0, a: 1}
-  hitDuration: 0.5
->>>>>>> 721c079be8801a03c2ca4dfa6d3c21efc9a806d5
 --- !u!50 &474069375210572823
 Rigidbody2D:
   serializedVersion: 4
@@ -733,5 +714,22 @@ MonoBehaviour:
   bulletsPerShot: 10
   animator: {fileID: 3977311467296693521}
   spriteRenderer: {fileID: 0}
+  hitColor: {r: 1, g: 0, b: 0, a: 1}
+  hitDuration: 0.5
+--- !u!114 &9015788584188126123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7890526835255193365}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4ceec4a6a06940ff9b1a8830f8c4526, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  animator: {fileID: 3977311467296693521}
+  spriteRenderer: {fileID: 1358749507243102259}
   hitColor: {r: 1, g: 0, b: 0, a: 1}
   hitDuration: 0.5
