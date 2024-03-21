@@ -2451,6 +2451,7 @@ MonoBehaviour:
   player: {fileID: 2072725234}
   spawnRate: 1
   spawnRadius: 5
+  tilemap: {fileID: 1952662221}
 --- !u!4 &1449744612
 Transform:
   m_ObjectHideFlags: 0
