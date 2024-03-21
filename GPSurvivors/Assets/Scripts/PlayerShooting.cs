@@ -40,7 +40,7 @@ public class PlayerShooting : MonoBehaviour
             }
             if (PlayerStatsManager.Instance.APbulletCount > 0)
             {
-                StartCoroutine(ShootIceballs(PlayerStatsManager.Instance.APbulletCount, nearestEnemy));
+                StartCoroutine(ShootAPbullet(PlayerStatsManager.Instance.APbulletCount, nearestEnemy));
             }
         }
     }

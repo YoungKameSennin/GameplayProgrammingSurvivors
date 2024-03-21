@@ -43755,7 +43755,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 1
-  bulletsPerShoot: 2
+  bulletsPerShoot: 0
   ShieldHealth: 100
   playerPosition: {fileID: 2072725236}
   shieldManager: {fileID: 0}
@@ -43766,7 +43766,7 @@ MonoBehaviour:
   uiExperienceBar: {fileID: 515351435}
   iceballCount: 0
   MarryGoRoundCount: 0
-  APbulletCount: 0
+  APbulletCount: 1
 --- !u!114 &2072725245
 MonoBehaviour:
   m_ObjectHideFlags: 0

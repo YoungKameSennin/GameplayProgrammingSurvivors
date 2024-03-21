@@ -90,15 +90,15 @@ public class PlayerStatsManager : MonoBehaviour
     {
         List<UpgradeOption> allOptions = new List<UpgradeOption>()
         {
-            //UpgradeOption.IncreaseBullets,
-            //UpgradeOption.IncreaseShieldHealth,
-            //UpgradeOption.IncreaseIceBall,
-            //UpgradeOption.IncreaseMarryGoRound,
+            UpgradeOption.IncreaseBullets,
+            UpgradeOption.IncreaseShieldHealth,
+            UpgradeOption.IncreaseIceBall,
+            UpgradeOption.IncreaseMarryGoRound,
             UpgradeOption.IncreaseAPbullet
         };
 
         List<UpgradeOption> chosenOptions = new List<UpgradeOption>();
-        for (int i = 0; i < 1; i++) // 随机选择3个不同的选项
+        for (int i = 0; i < 3; i++) // 随机选择3个不同的选项
         {
             int randomIndex = Random.Range(0, allOptions.Count);
             chosenOptions.Add(allOptions[randomIndex]);
@@ -119,7 +119,7 @@ public class PlayerStatsManager : MonoBehaviour
                 shieldManager.ActivateShield();
                 break;
             case UpgradeOption.IncreaseIceBall:
-                //iceballCount += 1;
+                iceballCount += 1;
                 break;
             case UpgradeOption.IncreaseMarryGoRound:
                 MarryGoRoundCount += 2;

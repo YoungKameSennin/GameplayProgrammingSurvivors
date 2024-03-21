@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class APbullet : MonoBehaviour
 {
-    [SerializeField] private float damage = 50.0f;
-    public float speed = 5f;
-    public float rotateSpeed = 200f;//adjust if needed
+    [SerializeField] private float damage = 30.0f;
+    public float speed = 15f;
     private Transform target;
     private Vector2 lastDirection;
 
@@ -24,7 +23,6 @@ public class APbullet : MonoBehaviour
             lastDirection = direction;
 
             float rotateAmount = Vector3.Cross(direction, transform.up).z;
-            GetComponent<Rigidbody2D>().angularVelocity = -rotateAmount * rotateSpeed;
             GetComponent<Rigidbody2D>().velocity = transform.up * speed;
         }
         else
@@ -34,15 +32,14 @@ public class APbullet : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        // collision.gameObject is the reference to the collided object
-        if (collision.gameObject.tag == "Enemy")
+        
+        if (collider.gameObject.tag == "Enemy")
         {
-            collision.gameObject.GetComponent<Health>().TakeDamage(damage);
-            Destroy(gameObject);
+            collider.gameObject.GetComponent<Health>().TakeDamage(damage);
         }
-        if (collision.gameObject.tag == "Edge")
+        if (collider.gameObject.tag == "Edge")
         {
             Destroy(gameObject);
         }
@@ -57,6 +54,4 @@ public class APbullet : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-
 }
