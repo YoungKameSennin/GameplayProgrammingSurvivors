@@ -1,6 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+public enum UpgradeOption
+{
+    IncreaseBullets,
+    IncreaseShieldHealth,
+    IncreaseIceBall,
+    IncreaseMarryGoRound,
+    IncreaseAPbullet
+    // 可以添加更多技能提升选项
+}
 
 public class PlayerStatsManager : MonoBehaviour
 {
@@ -20,9 +29,9 @@ public class PlayerStatsManager : MonoBehaviour
     public float currentExperience = 0;
     public float maxExperience = 50;
 
-    
+
     [SerializeField] private float experiencePerGem = 8.0f;
-    [SerializeField]private float experiencePerCode = 80.0f;
+    [SerializeField] private float experiencePerCode = 80.0f;
     public UIExperienceBar uiExperienceBar;
 
     public int iceballCount = 0;
@@ -32,15 +41,7 @@ public class PlayerStatsManager : MonoBehaviour
 
 
 
-    public enum UpgradeOption
-    {
-        IncreaseBullets,
-        IncreaseShieldHealth,
-        IncreaseIceBall,
-        IncreaseMarryGoRound,
-        IncreaseAPbullet
-        // 可以添加更多技能提升选项
-    }
+
 
     void Awake()
     {
@@ -78,7 +79,7 @@ public class PlayerStatsManager : MonoBehaviour
         {
             LevelUp();
             currentExperience -= maxExperience;
-            maxExperience *= 1.3f; 
+            maxExperience *= 1.3f;
         }
 
         uiExperienceBar.UpdateExperienceUI(currentExperience, maxExperience);
@@ -87,10 +88,10 @@ public class PlayerStatsManager : MonoBehaviour
     public void LevelUp()
     {
         level++;
-        
+
         List<UpgradeOption> options = GetRandomUpgradeOptions();
-        
-        ApplyUpgrade(options[0]);
+        var retval = GameObject.FindWithTag("LevelUpUI").GetComponent<UIButtonSetter>().setTexts(options);
+        //ApplyUpgrade(1);
     }
 
     List<UpgradeOption> GetRandomUpgradeOptions()
@@ -109,7 +110,7 @@ public class PlayerStatsManager : MonoBehaviour
         {
             int randomIndex = Random.Range(0, allOptions.Count);
             chosenOptions.Add(allOptions[randomIndex]);
-            allOptions.RemoveAt(randomIndex); 
+            allOptions.RemoveAt(randomIndex);
         }
         return chosenOptions;
     }
@@ -147,7 +148,7 @@ public class PlayerStatsManager : MonoBehaviour
 
 
 
-   
+
 }
 
 

@@ -20,6 +20,7 @@ TagManager:
   - TABullet
   - Code
   - Shield
+  - LevelUpUI
   layers:
   - Default
   - TransparentFX
