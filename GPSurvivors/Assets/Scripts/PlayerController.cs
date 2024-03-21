@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed = 10.0f;
 
     private float modifiedSpeed;
-    private Vector3 movementDirection; 
+    private Vector3 movementDirection;
     public Animator animator;
 
     public Transform GameOverUI;
@@ -62,9 +62,9 @@ public class PlayerController : MonoBehaviour
         gameObject.transform.Translate(movementDirection * Time.deltaTime * speed);
 
         // animation for the player.
-        if(movementDirection != Vector3.zero)
+        if (movementDirection != Vector3.zero)
         {
-            if(movementDirection.x < 0)
+            if (movementDirection.x < 0)
             {
                 gameObject.GetComponent<SpriteRenderer>().flipX = true;
             }
@@ -79,49 +79,28 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isMoving", false);
         }
 
-        if(health.curHealth <= 0)
+        if (health.curHealth <= 0)
         {
             GameOverUI.gameObject.SetActive(true);
             GameWinUI.gameObject.SetActive(false);
             LevelUpUI.gameObject.SetActive(false);
         }
-        else if(playerStatsManager.level >= 5){
-            Time.timeScale = 0f;
+        else if (FindObjectOfType<EnemySpawner>().ProfDefeated)
+        {
             GameWinUI.gameObject.SetActive(true);
             GameOverUI.gameObject.SetActive(false);
             LevelUpUI.gameObject.SetActive(false);
-        }
-        else if(playerStatsManager.level > LastFrameLevel){
-            LastFrameLevel = playerStatsManager.level;
-            Time.timeScale = 0f;
-            LevelUpUI.gameObject.SetActive(true);
-            GemCountLastFrame = GemCount;
         }
     }
 
     public void OnClickRestartButton()
     {
-        // gameOverSection.SetActive(false);
-        /*
-        Time.timeScale = 1f;
-        GemCount = 0;
-        gameObject.GetComponent<SpriteRenderer>().enabled = true;
-        health.curHealth = health.maxHealth;
-
-        playerStatsManager.level = 1;
-        playerStatsManager.health = 100;
-
-        transform.position = originalPosition;
-
-        DestroyAllEnemies();
-
-        GameOverUI.gameObject.SetActive(false);
-        */
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("GamePlay");
         Time.timeScale = 1f;
     }
 
-    public void DestroyAllEnemies(){
+    public void DestroyAllEnemies()
+    {
         // destroy all enemies and bullets
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject enemy in enemies)
@@ -135,23 +114,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void OnClickLevelUp(){
+    public void OnClickLevelUp()
+    {
         Time.timeScale = 1f;
         LevelUpUI.gameObject.SetActive(false);
     }
 
-    public void OnClickGameWin(){
+    public void OnClickGameWin()
+    {
+        SceneManager.LoadScene("GamePlay");
         Time.timeScale = 1f;
-        GemCount = 0;
-        health.curHealth = health.maxHealth;
-        transform.position = originalPosition;
-
-        DestroyAllEnemies();
-
-        playerStatsManager.level = 1;
-        playerStatsManager.health = 100;
-
-        GameWinUI.gameObject.SetActive(false);
     }
 }
 

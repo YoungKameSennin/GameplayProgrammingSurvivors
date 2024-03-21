@@ -1,8 +1,8 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class APbullet : MonoBehaviour
 {
     [SerializeField] private float damage = 50.0f;
     public float speed = 5f;
@@ -30,13 +30,9 @@ public class Bullet : MonoBehaviour
     {
         if (target != null)
         {
-            // let bullet keep track the enemy
             Vector2 direction = (target.position - transform.position).normalized;
             lastDirection = direction;
-
-            float rotateAmount = Vector3.Cross(direction, transform.up).z;
-            GetComponent<Rigidbody2D>().angularVelocity = -rotateAmount * rotateSpeed;
-            GetComponent<Rigidbody2D>().velocity = transform.up * speed;
+            GetComponent<Rigidbody2D>().velocity = lastDirection * speed;
         }
         else
         {
@@ -48,15 +44,14 @@ public class Bullet : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // collision.gameObject is the reference to the collided object
-        if (collision.gameObject.tag == "Enemy") {
+        if (collision.gameObject.tag == "Enemy")
+        {
             collision.gameObject.GetComponent<Health>().TakeDamage(damage);
-            Destroy(gameObject);
         }
         if (collision.gameObject.tag == "Edge")
         {
             Destroy(gameObject);
         }
-        
     }
 
     void CheckIfOutOfCameraBounds()
