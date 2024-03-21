@@ -8,10 +8,7 @@ public class ShieldManager : MonoBehaviour
     private GameObject currentShield; 
     public float shieldHealth;
     public float rechargeTime = 10f;
-    void Start()
-    {
-        ActivateShield();
-    }
+    
     
     void Update()
     {
