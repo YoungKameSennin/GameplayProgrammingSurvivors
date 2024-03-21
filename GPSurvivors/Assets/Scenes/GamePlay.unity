@@ -43172,11 +43172,11 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
-  - clip: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 65369967a18514422bae14210834ec23, type: 3}
     audioSource: {fileID: 0}
-    title: 
-    volume: 0
-    pitch: 0
+    title: RechargeShield
+    volume: 1
+    pitch: 1
     loop: 0
   - clip: {fileID: 0}
     audioSource: {fileID: 0}
@@ -43489,6 +43489,7 @@ MonoBehaviour:
   shieldPrefab: {fileID: 3747295795155575009, guid: abcf402e68d09ce48a2ffeab6737a361,
     type: 3}
   shieldHealth: 100
+  rechargeTime: 10
 --- !u!1 &2091220814
 GameObject:
   m_ObjectHideFlags: 0

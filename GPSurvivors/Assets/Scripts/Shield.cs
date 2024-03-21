@@ -10,7 +10,7 @@ public class Shield : MonoBehaviour
 
     public void Update()
     {
-        Debug.Log($"shieldHealth start:{shieldHealth}");
+        //Debug.Log($"shieldHealth start:{shieldHealth}");
     }
     public void Initialize(ShieldManager manager, float initialHealth)
     {
