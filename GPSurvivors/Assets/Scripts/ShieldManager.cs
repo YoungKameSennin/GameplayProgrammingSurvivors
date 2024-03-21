@@ -7,11 +7,9 @@ public class ShieldManager : MonoBehaviour
     public GameObject shieldPrefab; 
     private GameObject currentShield; 
     public float shieldHealth;
-    void Start()
-    {
-        ActivateShield();
-    }
-
+    public float rechargeTime = 10f;
+    
+    
     void Update()
     {
         if (PlayerStatsManager.Instance != null && PlayerStatsManager.Instance.playerPosition != null)
@@ -38,6 +36,7 @@ public class ShieldManager : MonoBehaviour
         if (currentShield == null)
         {
             currentShield = Instantiate(shieldPrefab, PlayerStatsManager.Instance.playerPosition.position, Quaternion.identity);
+            FindObjectOfType<SoundManager>().PlaySoundEffect("RechargeShield");
             Shield shieldScript = currentShield.GetComponent<Shield>();
             shieldHealth = PlayerStatsManager.Instance.ShieldHealth;
             if (shieldScript != null)
@@ -47,6 +46,19 @@ public class ShieldManager : MonoBehaviour
             }
         }
     }
+    public void OnShieldDestroyed()
+    {
+        if (currentShield != null)
+        {
+            currentShield = null;
+            StartCoroutine(RechargeShield());
+        }
+    }
 
+    IEnumerator RechargeShield()
+    {
+        yield return new WaitForSeconds(rechargeTime); 
+        ActivateShield();
+    }
 
 }

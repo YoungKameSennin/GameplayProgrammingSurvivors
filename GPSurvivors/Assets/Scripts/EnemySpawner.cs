@@ -5,17 +5,22 @@ using UnityEngine.Tilemaps;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject[] enemyPrefabs;
+    [SerializeField] private GameObject[] enemyPrefabs1;
+    [SerializeField] private GameObject[] enemyPrefabs2;
+    [SerializeField] private GameObject[] enemyPrefabs3;
+    [SerializeField] private GameObject[] enemyPrefabs4;
     [SerializeField] private GameObject player;
     [SerializeField] private float spawnRate = 1.0f;
     [SerializeField] private float spawnRadius = 5.0f;
     [SerializeField] public Tilemap tilemap;
     private float spawnTimer = 0.0f;
+    private PlayerStatsManager playerStatsManager;
 
     // Start is called before the first frame update
     void Start()
     {
         Transform playerTransform = player.transform;
+        playerStatsManager = player.GetComponent<PlayerStatsManager>();
     }
 
     // Update is called once per frame
@@ -45,27 +50,71 @@ public class EnemySpawner : MonoBehaviour
         float randomAngle = Random.Range(0f, Mathf.PI * 2f);
 
         // Calculate random x and y offsets using trigonometry
-        float xOffset = Mathf.Cos(randomAngle) * spawnRadius;
-        float yOffset = Mathf.Sin(randomAngle) * spawnRadius;
+        float xOffset1 = Mathf.Cos(randomAngle) * spawnRadius;
+        float yOffset1 = Mathf.Sin(randomAngle) * spawnRadius;
+        randomAngle = Random.Range(0f, Mathf.PI * 2f);
+        float xOffset2 = Mathf.Cos(randomAngle) * spawnRadius;
+        float yOffset2 = Mathf.Sin(randomAngle) * spawnRadius;
+        randomAngle = Random.Range(0f, Mathf.PI * 2f);
+        float xOffset3 = Mathf.Cos(randomAngle) * spawnRadius;
+        float yOffset3 = Mathf.Sin(randomAngle) * spawnRadius;
 
         // Calculate spawn position around the player
-        Vector3 spawnPosition = player.transform.position + new Vector3(xOffset, yOffset, 0);
+        Vector3 spawnPosition1 = player.transform.position + new Vector3(xOffset1, yOffset1, 0);
+        Vector3 spawnPosition2 = player.transform.position + new Vector3(xOffset2, yOffset2, 0);
+        Vector3 spawnPosition3 = player.transform.position + new Vector3(xOffset3, yOffset3, 0);
 
-        while (!IsPositionOnTilemap(spawnPosition))
-        {   
+        while (!IsPositionOnTilemap(spawnPosition1))
+        {
             Debug.Log("Enemy spawned on tilemap, recalculating spawn position.");
             randomAngle = Random.Range(0f, Mathf.PI * 2f);
-            xOffset = Mathf.Cos(randomAngle) * spawnRadius;
-            yOffset = Mathf.Sin(randomAngle) * spawnRadius;
-            spawnPosition = player.transform.position + new Vector3(xOffset, yOffset, 0);
+            xOffset1 = Mathf.Cos(randomAngle) * spawnRadius;
+            yOffset1 = Mathf.Sin(randomAngle) * spawnRadius;
+            spawnPosition1 = player.transform.position + new Vector3(xOffset1, yOffset1, 0);
         }
 
-        // Instantiate a random enemy prefab at the calculated spawn position
-        if (enemyPrefabs.Length > 0)
+        while (!IsPositionOnTilemap(spawnPosition2))
         {
-            int prefabIndex = Random.Range(0, enemyPrefabs.Length);
+            Debug.Log("Enemy spawned on tilemap, recalculating spawn position.");
+            randomAngle = Random.Range(0f, Mathf.PI * 2f);
+            xOffset2 = Mathf.Cos(randomAngle) * spawnRadius;
+            yOffset2 = Mathf.Sin(randomAngle) * spawnRadius;
+            spawnPosition2 = player.transform.position + new Vector3(xOffset2, yOffset2, 0);
+        }
+
+        while (!IsPositionOnTilemap(spawnPosition3))
+        {
+            Debug.Log("Enemy spawned on tilemap, recalculating spawn position.");
+            randomAngle = Random.Range(0f, Mathf.PI * 2f);
+            xOffset3 = Mathf.Cos(randomAngle) * spawnRadius;
+            yOffset3 = Mathf.Sin(randomAngle) * spawnRadius;
+            spawnPosition3 = player.transform.position + new Vector3(xOffset3, yOffset3, 0);
+        }
+
+
+        // Instantiate a random enemy prefab at the calculated spawn position
+        if (enemyPrefabs1.Length > 0 && enemyPrefabs2.Length > 0 && enemyPrefabs3.Length > 0 && enemyPrefabs4.Length > 0)
+        {
+            int prefabIndex1 = Random.Range(0, enemyPrefabs1.Length);
+            int prefabIndex2 = Random.Range(0, enemyPrefabs2.Length);
+            int prefabIndex3 = Random.Range(0, enemyPrefabs3.Length);
             FindObjectOfType<SoundManager>().PlaySoundEffect("Spawn");
-            Instantiate(enemyPrefabs[prefabIndex], spawnPosition, Quaternion.identity);
+            if (playerStatsManager.level < 3)
+            {
+                Instantiate(enemyPrefabs1[prefabIndex1], spawnPosition1, Quaternion.identity);
+            }
+            else if (playerStatsManager.level < 5)
+            {
+                Instantiate(enemyPrefabs1[prefabIndex1], spawnPosition1, Quaternion.identity);
+                Instantiate(enemyPrefabs2[prefabIndex2], spawnPosition2, Quaternion.identity);
+            }
+            else if (playerStatsManager.level < 7)
+            {
+                Instantiate(enemyPrefabs1[prefabIndex1], spawnPosition1, Quaternion.identity);
+                Instantiate(enemyPrefabs2[prefabIndex2], spawnPosition2, Quaternion.identity);
+                Instantiate(enemyPrefabs3[prefabIndex3], spawnPosition3, Quaternion.identity);
+            }
+
         }
     }
 }
