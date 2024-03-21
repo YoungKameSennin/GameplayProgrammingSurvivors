@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3847802650087339890}
-  - component: {fileID: 910939540172171180}
   - component: {fileID: -6763075056200065984}
   - component: {fileID: 6666625416914288417}
+  - component: {fileID: 8220738459941363190}
   m_Layer: 11
   m_Name: projectile
   m_TagString: bullets
@@ -35,21 +35,6 @@ Transform:
   - {fileID: 4681129827838207499}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &910939540172171180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5005564517564955526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4769fc8b1aaabc645b92285a14971d66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 50
-  speed: 5
-  rotateSpeed: 800
 --- !u!50 &-6763075056200065984
 Rigidbody2D:
   serializedVersion: 4
@@ -122,6 +107,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.28}
   m_EdgeRadius: 0
+--- !u!114 &8220738459941363190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5005564517564955526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3b08feb65cfd1f479c2b3e7cb3c6944, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 15
 --- !u!1 &7643170116618673507
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,7 +147,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.08, y: 0.12, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.12, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3847802650087339890}
@@ -197,7 +195,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee,
     type: 3}
-  m_Color: {r: 0.42423156, g: 0.9433962, b: 0.72828305, a: 1}
+  m_Color: {r: 0.35686275, g: 0.6862745, b: 0.23529413, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

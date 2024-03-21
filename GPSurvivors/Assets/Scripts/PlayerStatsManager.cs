@@ -25,12 +25,16 @@ public class PlayerStatsManager : MonoBehaviour
 
     public int iceballCount = 0;
 
+    public int MarryGoRoundCount = 0;
+
+
 
     public enum UpgradeOption
     {
         IncreaseBullets,
         IncreaseShieldHealth,
-        IncreaseIceBall
+        IncreaseIceBall,
+        IncreaseMarryGoRound
         // 可以添加更多技能提升选项
     }
 
@@ -86,7 +90,8 @@ public class PlayerStatsManager : MonoBehaviour
         {
             UpgradeOption.IncreaseBullets,
             UpgradeOption.IncreaseShieldHealth,
-            UpgradeOption.IncreaseIceBall
+            UpgradeOption.IncreaseIceBall,
+            UpgradeOption.IncreaseMarryGoRound
         };
 
         List<UpgradeOption> chosenOptions = new List<UpgradeOption>();
@@ -113,7 +118,10 @@ public class PlayerStatsManager : MonoBehaviour
             case UpgradeOption.IncreaseIceBall:
                 iceballCount += 1;
                 break;
-
+            case UpgradeOption.IncreaseMarryGoRound:
+                MarryGoRoundCount += 2;
+                FindObjectOfType<MerryGoRound>().UpdateBullets();
+                break;
 
         }
     }
