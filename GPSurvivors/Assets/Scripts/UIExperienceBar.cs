@@ -9,6 +9,7 @@ public class UIExperienceBar : MonoBehaviour
     public Slider experienceSlider;
     public PlayerStatsManager statsManager;
     public TMP_Text timerText;
+    public TMP_Text levelText;
     private float timer = 0f;
 
     void Start()
@@ -28,6 +29,8 @@ public class UIExperienceBar : MonoBehaviour
 
         // Update the UI Text component to display the formatted timer value
         timerText.text = minutes + ":" + seconds;
+
+        levelText.text = "Level: " + statsManager.level.ToString();
     }
 
     public void SetExperience(float experience)
