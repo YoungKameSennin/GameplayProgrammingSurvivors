@@ -2446,8 +2446,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 612a8ae253601495a8d6380d88bf40c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefabs:
+  enemyPrefabs1:
   - {fileID: 7890526835255193365, guid: 6e97290fab7b944da87fe5c943858501, type: 3}
+  enemyPrefabs2:
+  - {fileID: 7890526835255193365, guid: 328dcedf29b57cd4292bc9a490ab0f5b, type: 3}
+  enemyPrefabs3:
+  - {fileID: 7890526835255193365, guid: 521ed011eff6ea547b359d6b89f1944b, type: 3}
+  enemyPrefabs4:
+  - {fileID: 7890526835255193365, guid: fd186af31e7a5db49b37eff9fccfd99e, type: 3}
   player: {fileID: 2072725234}
   spawnRate: 1
   spawnRadius: 5
