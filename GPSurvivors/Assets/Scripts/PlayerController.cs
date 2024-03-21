@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -101,6 +102,7 @@ public class PlayerController : MonoBehaviour
     public void OnClickRestartButton()
     {
         // gameOverSection.SetActive(false);
+        /*
         Time.timeScale = 1f;
         GemCount = 0;
         gameObject.GetComponent<SpriteRenderer>().enabled = true;
@@ -114,6 +116,9 @@ public class PlayerController : MonoBehaviour
         DestroyAllEnemies();
 
         GameOverUI.gameObject.SetActive(false);
+        */
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1f;
     }
 
     public void DestroyAllEnemies(){

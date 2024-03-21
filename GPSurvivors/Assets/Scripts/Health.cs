@@ -21,7 +21,7 @@ public class Health : MonoBehaviour
     }
 
     public void TakeDamage(float damage)
-    {   
+    {
         if (this.scrollingText)
         {
             this.ShowScrollingText(damage.ToString(), "red");
@@ -30,7 +30,6 @@ public class Health : MonoBehaviour
         if (curHealth - damage <= 0)
         {
             curHealth = 0;
-            // Die, drop item
             Die();
         }
         else
@@ -79,20 +78,17 @@ public class Health : MonoBehaviour
                 }
             }
         }
-
         if (gameObject.CompareTag("Player"))
         {
             Time.timeScale = 0f;
-            gameObject.GetComponent<SpriteRenderer>().enabled = false;
-        }
-        else
-        {
+        } else {
             Destroy(gameObject);
         }
+
     }
-    
+
     public void ShowScrollingText(string message, string color = "red")
-    {   
+    {
         var scrollingText = Instantiate(this.scrollingText, this.transform.position, Quaternion.identity);
         scrollingText.GetComponent<TextMesh>().text = message;
         if (color == "red")
@@ -104,24 +100,11 @@ public class Health : MonoBehaviour
             scrollingText.GetComponent<TextMesh>().color = Color.green;
         }
     }
-    
+
 
     // Update is called once per frame
     void Update()
     {
         healthBar.value = curHealth / maxHealth;
-        if (curHealth <= 0)
-        {
-            if (gameObject.tag == "Player")
-            {
-                // Stop the time
-                Time.timeScale = 0f;
-                gameObject.GetComponent<SpriteRenderer>().enabled = false;
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
-        }
     }
 }
