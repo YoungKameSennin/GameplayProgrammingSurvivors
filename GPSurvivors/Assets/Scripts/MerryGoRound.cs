@@ -65,7 +65,6 @@ public class MerryGoRound : MonoBehaviour
     IEnumerator RespawnBulletAfterDelay()
     {
         yield return new WaitForSeconds(respawnDelay);
-            SpawnBullet();
-
+        UpdateBullets();
     }
 }
