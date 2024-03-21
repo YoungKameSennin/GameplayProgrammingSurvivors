@@ -24,7 +24,7 @@ public class Health : MonoBehaviour
     {   
         if (this.scrollingText)
         {
-            this.ShowScrollingText(damage.ToString());
+            this.ShowScrollingText(damage.ToString(), "red");
         }
 
         if (curHealth - damage <= 0)
@@ -41,6 +41,7 @@ public class Health : MonoBehaviour
 
     public void Heal(float healAmount)
     {
+        this.ShowScrollingText(healAmount.ToString(), "green");
         if (curHealth + healAmount >= maxHealth)
         {
             curHealth = maxHealth;
@@ -90,10 +91,18 @@ public class Health : MonoBehaviour
         }
     }
     
-    public void ShowScrollingText(string message)
-    {
+    public void ShowScrollingText(string message, string color = "red")
+    {   
         var scrollingText = Instantiate(this.scrollingText, this.transform.position, Quaternion.identity);
         scrollingText.GetComponent<TextMesh>().text = message;
+        if (color == "red")
+        {
+            scrollingText.GetComponent<TextMesh>().color = Color.red;
+        }
+        else if (color == "green")
+        {
+            scrollingText.GetComponent<TextMesh>().color = Color.green;
+        }
     }
     
 
