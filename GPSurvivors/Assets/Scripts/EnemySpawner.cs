@@ -33,7 +33,7 @@ public class EnemySpawner : MonoBehaviour
     void Update()
     {
         spawnTimer += Time.deltaTime;
-        if (playerStatsManager.level >= 1)
+        if (playerStatsManager.level >= 10)
         {
             if (!TASpawned && !TADefeated)
             {
