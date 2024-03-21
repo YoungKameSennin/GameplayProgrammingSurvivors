@@ -1,11 +1,12 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 
 public class PlayerShooting : MonoBehaviour
 {
-    public GameObject bulletPrefab; 
+    public GameObject bulletPrefab;
+    public GameObject iceballPrefab;
     public Transform firePoint;
     private GameObject currentTarget;
     public float shootInterval = 1.2f;
@@ -31,6 +32,11 @@ public class PlayerShooting : MonoBehaviour
         if (nearestEnemy != null)
         {
             StartCoroutine(ShootBullets(PlayerStatsManager.Instance.bulletsPerShoot, nearestEnemy));
+
+            if (PlayerStatsManager.Instance.iceballCount > 1)
+            {
+                StartCoroutine(ShootIceballs(PlayerStatsManager.Instance.iceballCount, nearestEnemy));
+            }
         }
     }
 
@@ -55,9 +61,34 @@ public class PlayerShooting : MonoBehaviour
                 bullet.GetComponent<Bullet>().SetTarget(nearestEnemy.transform);
             }
 
-            yield return new WaitForSeconds(0.09f);
+            yield return new WaitForSeconds(0.1f);
         }
     }
+
+    IEnumerator ShootIceballs(int iceballsToShoot, GameObject nearestEnemy)
+    {
+        
+        yield return new WaitForSeconds(PlayerStatsManager.Instance.bulletsPerShoot * 0.09f);
+
+        for (int i = 0; i < iceballsToShoot; i++)
+        {
+            if (nearestEnemy == null)
+                yield break;
+
+            GameObject iceball = Instantiate(iceballPrefab, firePoint.position, Quaternion.identity);
+            Vector3 direction = nearestEnemy.transform.position - firePoint.position;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            iceball.transform.rotation = Quaternion.Euler(0f, 0f, angle - 90);
+
+            if (iceball.GetComponent<Bullet>() != null)
+            {
+                iceball.GetComponent<Bullet>().SetTarget(nearestEnemy.transform);
+            }
+
+            yield return new WaitForSeconds(0.15f);
+        }
+    }
+
 
     GameObject FindNearestEnemy()
     {

@@ -23,13 +23,14 @@ public class PlayerStatsManager : MonoBehaviour
     private float experiencePerGem = 30.0f;
     public UIExperienceBar uiExperienceBar;
 
+    public int iceballCount = 0;
+
 
     public enum UpgradeOption
     {
         IncreaseBullets,
-        IncreaseHealth,
-        IncreaseShootSpeed,
         IncreaseShieldHealth,
+        IncreaseIceBall
         // 可以添加更多技能提升选项
     }
 
@@ -84,13 +85,13 @@ public class PlayerStatsManager : MonoBehaviour
     {
         List<UpgradeOption> allOptions = new List<UpgradeOption>()
         {
-            //UpgradeOption.IncreaseBullets,
-            //UpgradeOption.IncreaseHealth,
-            UpgradeOption.IncreaseShieldHealth
+            UpgradeOption.IncreaseBullets,
+            UpgradeOption.IncreaseShieldHealth,
+            UpgradeOption.IncreaseIceBall
         };
 
         List<UpgradeOption> chosenOptions = new List<UpgradeOption>();
-        for (int i = 0; i < 1; i++) // 随机选择3个不同的选项
+        for (int i = 0; i < 3; i++) // 随机选择3个不同的选项
         {
             int randomIndex = Random.Range(0, allOptions.Count);
             chosenOptions.Add(allOptions[randomIndex]);
@@ -106,16 +107,15 @@ public class PlayerStatsManager : MonoBehaviour
             case UpgradeOption.IncreaseBullets:
                 bulletsPerShoot++;
                 break;
-            //case UpgradeOption.IncreaseHealth:
-                //health += 20;
-                //break;
-            case UpgradeOption.IncreaseShootSpeed:
-                shootSpeed *= 0.9f; 
-                break;
             case UpgradeOption.IncreaseShieldHealth:
                 ShieldHealth += 20f;
                 shieldManager.ActivateShield();
                 break;
+            case UpgradeOption.IncreaseIceBall:
+                iceballCount += 1;
+                break;
+
+
         }
     }
 

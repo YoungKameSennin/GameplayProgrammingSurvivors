@@ -2447,7 +2447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefabs:
-  - {fileID: 7890526835255193365, guid: 22f0bad9ab6361e4b8a2a53b56cd24bb, type: 3}
+  - {fileID: 7890526835255193365, guid: 6e97290fab7b944da87fe5c943858501, type: 3}
   player: {fileID: 2072725234}
   spawnRate: 1
   spawnRadius: 5
@@ -43431,7 +43431,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edaff8a5f6ee87541aa3c793ca8255d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 5005564517564955526, guid: 50f39bfdec805884dbffef2e6557975f,
+  bulletPrefab: {fileID: 8166074427350919949, guid: c3ec90b1674efb547b2e0d8e70514c6d,
+    type: 3}
+  iceballPrefab: {fileID: 2183754706625256251, guid: 2d8164e9afa650d49b912884ecf818ad,
     type: 3}
   firePoint: {fileID: 2072725236}
   shootInterval: 1.2
@@ -43471,6 +43473,7 @@ MonoBehaviour:
   currentExperience: 0
   maxExperience: 50
   uiExperienceBar: {fileID: 515351435}
+  iceballCount: 0
 --- !u!114 &2072725245
 MonoBehaviour:
   m_ObjectHideFlags: 0

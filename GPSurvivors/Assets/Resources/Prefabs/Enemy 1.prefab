@@ -601,6 +601,10 @@ MonoBehaviour:
   hpBottleChance: 3
   scrollingText: {fileID: 363838215371788088, guid: d1e346cfa2ae64e71aba55880030ad92,
     type: 3}
+  hpBottlePrefab: {fileID: 2129480677606562997, guid: 3d3100128c0d8b3428d603f12d28ff69,
+    type: 3}
+  hpBottleChance: 3
+  scrollingText: {fileID: 0}
 --- !u!114 &9015788584188126123
 MonoBehaviour:
   m_ObjectHideFlags: 0
