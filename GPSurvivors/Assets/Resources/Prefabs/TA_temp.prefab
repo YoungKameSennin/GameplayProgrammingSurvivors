@@ -500,10 +500,10 @@ GameObject:
   - component: {fileID: 5262615922223542797}
   - component: {fileID: 1358749507243102259}
   - component: {fileID: 6411200831595825848}
-  - component: {fileID: 9015788584188126123}
   - component: {fileID: 474069375210572823}
   - component: {fileID: 3977311467296693521}
   - component: {fileID: 6906832463414783531}
+  - component: {fileID: 6798349278418440985}
   m_Layer: 7
   m_Name: TA_temp
   m_TagString: Enemy
@@ -591,8 +591,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01de65d15cd3c40c6b479dc578d11d39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curHealth: 100
-  maxHealth: 100
+  curHealth: 5000
+  maxHealth: 5000
   healthBar: {fileID: 33642030428800588}
   gemPrefab: {fileID: 7430569447165051818, guid: 8696b598a26aaf141abd683312c677d1,
     type: 3}
@@ -601,23 +601,6 @@ MonoBehaviour:
   hpBottleChance: 3
   scrollingText: {fileID: 363838215371788088, guid: d1e346cfa2ae64e71aba55880030ad92,
     type: 3}
---- !u!114 &9015788584188126123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7890526835255193365}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4ceec4a6a06940ff9b1a8830f8c4526, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 2
-  animator: {fileID: 3977311467296693521}
-  spriteRenderer: {fileID: 0}
-  hitColor: {r: 1, g: 0, b: 0, a: 1}
-  hitDuration: 0.5
 --- !u!50 &474069375210572823
 Rigidbody2D:
   serializedVersion: 4
@@ -711,3 +694,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.35, y: 0.65}
   m_EdgeRadius: 0
+--- !u!114 &6798349278418440985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7890526835255193365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ef95286358abfd49ba29cba65f3c254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  bulletPrefab: {fileID: 8166074427350919949, guid: c3ec90b1674efb547b2e0d8e70514c6d,
+    type: 3}
+  shootInterval: 4
+  bulletsPerShot: 10
+  animator: {fileID: 3977311467296693521}
+  spriteRenderer: {fileID: 0}
+  hitColor: {r: 1, g: 0, b: 0, a: 1}
+  hitDuration: 0.5

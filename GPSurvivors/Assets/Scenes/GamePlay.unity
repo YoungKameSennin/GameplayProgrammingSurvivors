@@ -43592,6 +43592,7 @@ MonoBehaviour:
   GameWinUI: {fileID: 290162231}
   GemCount: 0
   playerStatsManager: {fileID: 2072725244}
+  nextLevel: 2
   LastFrameLevel: 1
 --- !u!114 &2072725238
 MonoBehaviour:
@@ -43779,7 +43780,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c907ae62e3d4eba4b90a5504069f37de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shieldPrefab: {fileID: 3747295795155575009, guid: abcf402e68d09ce48a2ffeab6737a361,
+  shieldPrefab: {fileID: 89177389424990263, guid: 2c72ca13004f211448a4639427d89b10,
     type: 3}
   shieldHealth: 100
   rechargeTime: 10
