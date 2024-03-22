@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<company>
+  <title>ECS179</title>
+  <based-in>United Status</based-in>
+  <website>https://github.com/dr-jam/GameplayProgramming</website>
+
+
+  <!-- Google analytics ID: -->
+  <analytics></analytics>
+
+  <description>
+  The best GameplayProgramming course in UCDavis.
+  </description>
+
+  <!-- Choose between a single block: -->
+  <history>
+  </history>
+
+  <!-- Or multiple blocks: -->
+  <!--
+  <histories>
+    <history>
+      <header></header>
+      <text></text>
+    </history>
+  </histories>
+  -->
+
+  <trailers>
+    <trailer>
+      <name></name>
+
+      <!-- Pick one: -->
+      <youtube>
+        <!-- Video ID only, not the full URL -->
+      </youtube>
+    </trailer>
+  </trailers>
+
+
+  <additionals>
+    <additional>
+      <title></title>
+      <description></description>
+      <link></link>
+    </additional>
+  </additionals>
+
+  <contacts>
+    <contact>
+      <name></name>
+
+      <!-- Pick one: -->
+      <mail></mail>
+      <link></link>
+    </contact>
+  </contacts>
+</company>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<product>
+  <title>Gameplay Programming Survivor</title>
+  <release-date>2024.03.21</release-date>
+  <website>https://github.com/YoungKameSennin/GameplayProgrammingSurvivors</website>
+
+  <!-- Link to request press copy: -->
+  <press-copy-request></press-copy-request>
+
+  <platforms>
+    <platform>
+      <name>Any platforms that can run Unity.</name>
+      <link></link>
+    </platform>
+  </platforms>
+
+  <prices>
+    <price>
+      <currency>Free to play!</currency>
+      <value></value>
+    </price>
+  </prices>
+
+  <description>the class of ECS 179 is ruled by enemies, humans must coexist with these enemies
+   in order to survive. As night falls, the enemies emerge from the dark corners of the classroom,
+   seeking their next prey. But in this world, there exists a group of warriors known as the "Survivors”,
+   individuals who possess the ability and courage to fight against the enemies, you are the one....</description>
+
+  <!-- Choose between a single block: -->
+  <history>This project is started 2024.02.23, and finally completed 2024.03.23. It's a one month project.</history>
+
+  <!-- Or multiple blocks: -->
+  <!--
+  <histories>
+    <history>
+      <header></header>
+      <text></text>
+    </history>
+  </histories>
+  -->
+
+  <features>
+    <feature>Roguelike RPG</feature>
+    <feature>Survivor</feature>
+    <feature>WIN/MAC/LINUX</feature>
+  </features>
+
+  <trailers>
+    <trailer>
+      <name></name>
+
+      <!-- Pick one: -->
+      <youtube>xlWIoJllBno
+        <!-- Video ID only, not the full URL -->
+      </youtube>
+    </trailer>
+  </trailers>
+
+
+  <awards>
+    <award>
+      <description>"Attend Final Festival IV"</description>
+      <info>03/22/2024</info>
+    </award>
+  </awards>
+
+  <quotes>
+    <quote>
+      <description>Incrediable story</description>
+      <name>Narritive Design</name>
+      <website>google docs</website>
+      <link>https://docs.google.com/document/d/1GJ435YvWXiRMIK78g1li-StkF3NcSF-7EBT123XZB8Y/edit</link>
+    </quote>
+  </quotes>
+
+  <credits>
+    <credit>
+      <person>Krystal Chau</person>
+      <role>She is our former student in group "McDungeon" who built the attendance code and our professor asset.
+      Thanks for her art that is Incrediable impressive</role>
+
+      <!-- Optional: -->
+      <website>https://github.com/oycheng/McDungeon</website>
+    </credit>
+    <credit>
+      <person>solarsailer</person>
+      <role>Re-implementation of presskit() as a static site generator.</role>
+
+      <!-- Optional: -->
+      <website>https://github.com/pixelnest/presskit.html</website>
+    </credit>
+    <credit>
+      <person>EVPO Games</person>
+      <role>Assets for fireball and iceball</role>
+
+      <!-- Optional: -->
+      <website>https://assetstore.unity.com/packages/2d/characters/2d-pixel-spaceship-two-small-ships-131545</website>
+    </credit>
+
+  </credits>
+
+</product>
