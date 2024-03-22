@@ -16,10 +16,11 @@ public class PlayerCollision : MonoBehaviour
         originalColor = playerRenderer.color;
     }
 
+    // Check if the player collides with an enemy or hp bottle。
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("Collided with " + collision.gameObject.tag);
-        if (collision.gameObject.tag == "Enemy") 
+        if (collision.gameObject.tag == "Enemy")
         {
             // Player takes damage
             gameObject.GetComponent<Health>().TakeDamage(damage);
@@ -28,15 +29,15 @@ public class PlayerCollision : MonoBehaviour
             StartCoroutine(FlashRed());
         }
 
-        if (collision.gameObject.tag == "hpBottle") 
+        if (collision.gameObject.tag == "hpBottle")
         {
             // increase the player's hp
             gameObject.GetComponent<Health>().Heal(healBottleAmount);
-            // Distory the hp bottle
+            // Destroy the hp bottle
             Destroy(collision.gameObject);
         }
     }
-    
+
     IEnumerator FlashRed()
     {
         // Change player's color to red
@@ -48,5 +49,5 @@ public class PlayerCollision : MonoBehaviour
         // Change player's color back to original color
         playerRenderer.color = originalColor;
     }
-    
+
 }

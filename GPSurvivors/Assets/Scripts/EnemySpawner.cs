@@ -22,16 +22,15 @@ public class EnemySpawner : MonoBehaviour
     private bool ProfSpawned = false;
     public bool ProfDefeated = false;
 
-    // Start is called before the first frame update
     void Start()
     {
         Transform playerTransform = player.transform;
         playerStatsManager = player.GetComponent<PlayerStatsManager>();
     }
 
-    // Update is called once per frame
     void Update()
     {
+        // Check if the player has reached level 10, if so, spawn the TA and Prof.
         spawnTimer += Time.deltaTime;
         if (playerStatsManager.level >= 10)
         {
@@ -44,7 +43,8 @@ public class EnemySpawner : MonoBehaviour
                 SpawnProf();
             }
         }
-        
+
+        // Spawn enemies at a fixed rate.
         if (spawnTimer >= spawnRate)
         {
             spawnTimer = 0.0f;
@@ -52,7 +52,7 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    // Function to check if a position is on the Tilemap
+    // Check if the spawn position is on the tilemap.
     public bool IsPositionOnTilemap(Vector3 worldPosition)
     {
         Vector3Int cellPosition = tilemap.WorldToCell(worldPosition);
@@ -100,6 +100,7 @@ public class EnemySpawner : MonoBehaviour
         // Calculate spawn position around the player
         Vector3 spawnPosition = player.transform.position + new Vector3(xOffset, yOffset, 0);
 
+        // Check if the spawn position is on the tilemap.
         while (!IsPositionOnTilemap(spawnPosition))
         {
             Debug.Log("Enemy spawned on tilemap, recalculating spawn position.");
@@ -118,10 +119,10 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnEnemy()
     {
-        // Calculate a random angle in radians
+        // Calculate a random angle in radians.
         float randomAngle = Random.Range(0f, Mathf.PI * 2f);
 
-        // Calculate random x and y offsets using trigonometry
+        // Calculate random x and y offsets using trigonometry.
         float xOffset1 = Mathf.Cos(randomAngle) * spawnRadius;
         float yOffset1 = Mathf.Sin(randomAngle) * spawnRadius;
         randomAngle = Random.Range(0f, Mathf.PI * 2f);
@@ -131,11 +132,12 @@ public class EnemySpawner : MonoBehaviour
         float xOffset3 = Mathf.Cos(randomAngle) * spawnRadius;
         float yOffset3 = Mathf.Sin(randomAngle) * spawnRadius;
 
-        // Calculate spawn position around the player
+        // Calculate spawn position around the player.
         Vector3 spawnPosition1 = player.transform.position + new Vector3(xOffset1, yOffset1, 0);
         Vector3 spawnPosition2 = player.transform.position + new Vector3(xOffset2, yOffset2, 0);
         Vector3 spawnPosition3 = player.transform.position + new Vector3(xOffset3, yOffset3, 0);
 
+        // Check if the spawn position is on the tilemap.
         while (!IsPositionOnTilemap(spawnPosition1))
         {
             Debug.Log("Enemy spawned on tilemap, recalculating spawn position.");

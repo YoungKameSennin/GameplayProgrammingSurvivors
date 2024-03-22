@@ -4,26 +4,24 @@ using UnityEngine;
 
 public class ShieldManager : MonoBehaviour
 {
-    public GameObject shieldPrefab; 
-    private GameObject currentShield; 
+    public GameObject shieldPrefab;
+    private GameObject currentShield;
     public float shieldHealth;
     public float rechargeTime = 10f;
-    
-    
+
     void Update()
     {
+        // If the player is alive, move the shield to the player's position.
         if (PlayerStatsManager.Instance != null && PlayerStatsManager.Instance.playerPosition != null)
         {
             if (currentShield != null)
             {
-               
+
                 currentShield.transform.position = PlayerStatsManager.Instance.playerPosition.position;
             }
         }
         else
         {
-            Debug.LogWarning("Player position is null.");
-            
             if (currentShield != null)
             {
                 Destroy(currentShield);
@@ -31,6 +29,7 @@ public class ShieldManager : MonoBehaviour
         }
     }
 
+    // Activate the shield.
     public void ActivateShield()
     {
         if (currentShield == null)
@@ -41,7 +40,7 @@ public class ShieldManager : MonoBehaviour
             shieldHealth = PlayerStatsManager.Instance.ShieldHealth;
             if (shieldScript != null)
             {
-                
+
                 shieldScript.Initialize(this, shieldHealth);
             }
         }
@@ -55,9 +54,10 @@ public class ShieldManager : MonoBehaviour
         }
     }
 
+    // Recharge the shield after a certain amount of time.
     IEnumerator RechargeShield()
     {
-        yield return new WaitForSeconds(rechargeTime); 
+        yield return new WaitForSeconds(rechargeTime);
         ActivateShield();
     }
 

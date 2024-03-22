@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class Merry : MonoBehaviour
 {
-    public float damage = 15f; 
+    public float damage = 15f;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        // If the bullet hits an enemy, deal damage to the enemy.
         if (collision.gameObject.tag == "Enemy")
         {
             collision.gameObject.GetComponent<Health>().TakeDamage(damage);
@@ -23,7 +22,6 @@ public class Merry : MonoBehaviour
 
     private void DestroyBullet()
     {
-        
         FindObjectOfType<MerryGoRound>().BulletDestroyed(gameObject);
         Destroy(gameObject);
     }

@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class GameStart : MonoBehaviour
 {
-   public void OnPlayButton()
-   {
-       SceneManager.LoadScene("GamePlay");
-   }
+    public void OnPlayButton()
+    {
+        SceneManager.LoadScene("GamePlay");
+    }
 }

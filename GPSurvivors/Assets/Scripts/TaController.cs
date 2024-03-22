@@ -10,7 +10,7 @@ public class TaController : MonoBehaviour
     [SerializeField] private float shootInterval = 4.0f;
     [SerializeField] private float codeInterval = 10.0f;
     [SerializeField] private int bulletsPerShot = 20;
-    private float shootTimer= 0.0f;
+    private float shootTimer = 0.0f;
     private float codeTimer = 0.0f;
     private GameObject player;
     private Transform playerTransform;
@@ -71,6 +71,8 @@ public class TaController : MonoBehaviour
         }
         shootTimer += Time.deltaTime;
         codeTimer += Time.deltaTime;
+
+        // Shoot a barrage of bullets
         if (shootTimer >= shootInterval)
         {
             ShootBarrage();

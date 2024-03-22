@@ -13,13 +13,13 @@ public class Health : MonoBehaviour
     [SerializeField] private int hpBottleChance = 3;
     [SerializeField] private GameObject scrollingText;
 
-    // Start is called before the first frame update
     void Start()
     {
-        // Set the player's health to max
+        // Set the GameObject's health to max.
         curHealth = maxHealth;
     }
 
+    // Take damage.
     public void TakeDamage(float damage)
     {
         if (this.scrollingText)
@@ -38,6 +38,7 @@ public class Health : MonoBehaviour
         }
     }
 
+    // Heal the GameObject.
     public void Heal(float healAmount)
     {
         this.ShowScrollingText(healAmount.ToString(), "green");
@@ -51,11 +52,12 @@ public class Health : MonoBehaviour
         }
     }
 
+    // Die when the player's health is 0.
     private void Die()
     {
         if (gemPrefab != null)
         {
-            // drop gem
+            // Drop gem.
             GameObject gemSpawned = Instantiate(gemPrefab, transform.position, Quaternion.identity);
 
             Rigidbody2D gemRigidbody = gemSpawned.GetComponent<Rigidbody2D>();
@@ -64,13 +66,13 @@ public class Health : MonoBehaviour
                 gemRigidbody.gravityScale = 0f;
             }
 
-            // Drop hp bottle
-            // Spawn HP bottle with a chance
+            // Drop hp bottle.
+            // Spawn HP bottle with a chance.
             int randomChance = Random.Range(0, hpBottleChance);
             if (randomChance == 0)
             {
                 GameObject hpBottleSpawned = Instantiate(hpBottlePrefab, transform.position + Vector3.up, Quaternion.identity);
-                // Make the gravity of the hp bottle to 0, so that it won't move
+                // Make the gravity of the hp bottle to 0, so that it won't move.
                 Rigidbody2D hpBottleRigidbody = hpBottleSpawned.GetComponent<Rigidbody2D>();
                 if (hpBottleRigidbody != null)
                 {
@@ -78,6 +80,8 @@ public class Health : MonoBehaviour
                 }
             }
         }
+
+        // If the player dies, stop the game.
         if (gameObject.CompareTag("Player"))
         {
             Time.timeScale = 0f;
@@ -86,11 +90,14 @@ public class Health : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        // If the enemy is defeated, set the enemy as defeated.
         if (gameObject.name == "TA_temp(Clone)")
         {
             Debug.Log("TA Defeated");
             FindObjectOfType<EnemySpawner>().TADefeated = true;
-        } else if (gameObject.name == "Prof_temp(Clone)")
+        }
+        else if (gameObject.name == "Prof_temp(Clone)")
         {
             Debug.Log("Prof Defeated");
             FindObjectOfType<EnemySpawner>().ProfDefeated = true;
@@ -100,6 +107,7 @@ public class Health : MonoBehaviour
 
     }
 
+    // Show scrolling text.
     public void ShowScrollingText(string message, string color = "red")
     {
         var scrollingText = Instantiate(this.scrollingText, this.transform.position, Quaternion.identity);
@@ -114,8 +122,6 @@ public class Health : MonoBehaviour
         }
     }
 
-
-    // Update is called once per frame
     void Update()
     {
         healthBar.value = curHealth / maxHealth;

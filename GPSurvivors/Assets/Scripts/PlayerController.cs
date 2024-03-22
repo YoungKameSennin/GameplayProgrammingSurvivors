@@ -27,10 +27,6 @@ public class PlayerController : MonoBehaviour
     {
         transform.position = new Vector3(0, 0, 0);
         health = GetComponent<Health>();
-
-        // gameOverSection = new GameOverUISection(GameOverUI);
-        // gameOverSection.SetActive(false);
-        // gameOverSection.OnClickRestartButtonAction = OnClickRestartButton;
         originalPosition = transform.position;
         LastFrameLevel = playerStatsManager.level;
     }
@@ -112,13 +108,6 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(gem);
         }
-    }
-
-    public void OnClickLevelUp()
-    {
-        nextLevel ++;
-        Time.timeScale = 1f;
-        LevelUpUI.gameObject.SetActive(false);
     }
 
     public void OnClickGameWin()

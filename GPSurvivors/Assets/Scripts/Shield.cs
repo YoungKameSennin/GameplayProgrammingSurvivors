@@ -10,40 +10,35 @@ public class Shield : MonoBehaviour
 
     public void Update()
     {
-        //Debug.Log($"shieldHealth start:{shieldHealth}");
     }
+
     public void Initialize(ShieldManager manager, float initialHealth)
     {
         shieldManager = manager;
         shieldHealth = initialHealth;
     }
 
+    // If the shield is hit by an enemy or a bullet, apply damage to the shield.
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Hit Run");
         if (collision.gameObject.tag == "Enemy")
         {
-            Debug.Log("Enemy hit the shield, applying damage.");
             ApplyDamage(10);
         }
         if (collision.gameObject.tag == "TABullet")
         {
-            Debug.Log("Enemy hit the shield, applying damage.");
             ApplyDamage(30);
         }
     }
 
+    // Apply damage to the shield.
     private void ApplyDamage(float damage)
     {
-        
         shieldHealth -= damage;
-        Debug.Log($"Shield damaged. Current health: {shieldHealth}");
-
         if (shieldHealth <= 0)
         {
-            Debug.Log("Shield destroyed.");
             shieldManager.OnShieldDestroyed();
-            Destroy(gameObject); 
+            Destroy(gameObject);
         }
     }
 }

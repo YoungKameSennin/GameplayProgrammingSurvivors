@@ -9,7 +9,6 @@ public enum UpgradeOption
     IncreaseIceBall,
     IncreaseMarryGoRound,
     IncreaseAPbullet
-    // 可以添加更多技能提升选项
 }
 
 public class PlayerStatsManager : MonoBehaviour
@@ -19,7 +18,6 @@ public class PlayerStatsManager : MonoBehaviour
     public int level = 1;
     public int bulletsPerShoot = 1;
 
-    //public float ShieldTime = 20f;
     public float ShieldHealth = 50;
     public Transform playerPosition;
     public ShieldManager shieldManager;
@@ -64,6 +62,7 @@ public class PlayerStatsManager : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        // Check if the player collides with a gem or code.
         if (collision.gameObject.CompareTag("Gem"))
         {
             Destroy(collision.gameObject);
@@ -76,6 +75,7 @@ public class PlayerStatsManager : MonoBehaviour
         }
     }
 
+    // Add experience to the player.
     public void AddExperience(float amount)
     {
         currentExperience += amount;
@@ -90,12 +90,14 @@ public class PlayerStatsManager : MonoBehaviour
         uiExperienceBar.UpdateExperienceUI(currentExperience, maxExperience);
     }
 
+    // Level up the player.
     public void LevelUp()
     {
         level++;
         Time.timeScale = 0f;
         LevelUpUI.gameObject.SetActive(true);
         options = GetRandomUpgradeOptions();
+        // Update the text of the buttons.
         switch (options[0])
         {
             case UpgradeOption.IncreaseBullets:
@@ -176,6 +178,7 @@ public class PlayerStatsManager : MonoBehaviour
         return chosenOptions;
     }
 
+    // Apply the upgrade option.
     void ApplyUpgrade(UpgradeOption option)
     {
         switch (option)
@@ -202,6 +205,7 @@ public class PlayerStatsManager : MonoBehaviour
         }
     }
 
+    // Called when the player clicks the button.
     public void OnClickButton1()
     {
         ApplyUpgrade(options[0]);

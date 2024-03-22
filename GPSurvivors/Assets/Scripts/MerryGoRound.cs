@@ -25,7 +25,7 @@ public class MerryGoRound : MonoBehaviour
 
     void Update()
     {
-
+        // Rotate all bullets around the player。
         foreach (GameObject bullet in bullets)
         {
             if (bullet != null)
@@ -35,6 +35,7 @@ public class MerryGoRound : MonoBehaviour
         }
     }
 
+    // Spawn bullets around the player.
     void SpawnBullets()
     {
         float angleIncrement = 360f / PlayerStatsManager.Instance.MarryGoRoundCount;
@@ -57,26 +58,29 @@ public class MerryGoRound : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, PlayerStatsManager.Instance.playerPosition.position + offset, Quaternion.identity, this.transform);
         bullets.Add(bullet);
     }
+
+    // Called when a bullet is destroyed.
     public void BulletDestroyed(GameObject bullet)
     {
         bullets.Remove(bullet);
+        // If all bullets are destroyed, respawn them after a delay.
         if (respawnCoroutine == null)
         {
-            // 如果当前没有协程在运行，则启动一个新的协程
             respawnCoroutine = StartCoroutine(RespawnBulletAfterDelay());
         }
         else
         {
-            // 如果已经有一个协程在运行，那么重置计时器
-            StopCoroutine(respawnCoroutine); // 停止当前协程
-            respawnCoroutine = StartCoroutine(RespawnBulletAfterDelay()); // 重新启动协程以重置计时
+            // If a bullet is destroyed while the respawn coroutine is running, stop the coroutine and restart it.
+            StopCoroutine(respawnCoroutine);
+            respawnCoroutine = StartCoroutine(RespawnBulletAfterDelay());
         }
     }
 
+    // Respawn all bullets after a delay.
     IEnumerator RespawnBulletAfterDelay()
     {
         yield return new WaitForSeconds(respawnDelay);
-        UpdateBullets(); // 更新子弹状态
-        respawnCoroutine = null; // 重置协程变量，表示当前没有协程在运行
+        UpdateBullets();
+        respawnCoroutine = null;
     }
 }

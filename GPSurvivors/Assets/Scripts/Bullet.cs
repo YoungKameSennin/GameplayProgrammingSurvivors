@@ -6,10 +6,10 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private float damage = 50.0f;
     public float speed = 8.0f;
-    public float rotateSpeed = 200f;//adjust if needed
+    public float rotateSpeed = 200f; //adjust if needed
     private Transform target;
     private Vector2 lastDirection;
-    
+
 
     public void SetTarget(Transform newTarget)
     {
@@ -20,7 +20,7 @@ public class Bullet : MonoBehaviour
     {
         if (target != null)
         {
-            // let bullet keep track the enemy
+            // Let bullet keep track the enemy.
             Vector2 direction = (target.position - transform.position).normalized;
             lastDirection = direction;
 
@@ -35,10 +35,11 @@ public class Bullet : MonoBehaviour
         }
     }
 
+    // If the bullet hits an enemy, deal damage to the enemy.
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // collision.gameObject is the reference to the collided object
-        if (collision.gameObject.tag == "Enemy") {
+        if (collision.gameObject.tag == "Enemy")
+        {
             collision.gameObject.GetComponent<Health>().TakeDamage(damage);
             Destroy(gameObject);
         }
@@ -46,9 +47,10 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        
+
     }
 
+    // If the bullet is out of camera bounds, destroy the bullet.
     void CheckIfOutOfCameraBounds()
     {
         Vector2 screenPosition = Camera.main.WorldToViewportPoint(transform.position);
@@ -57,6 +59,4 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-
 }

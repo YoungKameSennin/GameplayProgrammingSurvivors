@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
 public class GameOverUISection
 {
     private Transform trans;
@@ -22,7 +21,7 @@ public class GameOverUISection
         trans.gameObject.SetActive(state);
     }
 
-    private void OnClickRestartButton() 
+    private void OnClickRestartButton()
     {
         OnClickRestartButtonAction?.Invoke();
     }

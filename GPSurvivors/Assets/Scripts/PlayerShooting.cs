@@ -17,7 +17,7 @@ public class PlayerShooting : MonoBehaviour
         InvokeRepeating("AutoShoot", 0f, shootInterval);
     }
 
-
+    // Shoot at the nearest enemy.
     void AutoShoot()
     {
         if (GameObject.FindGameObjectWithTag("Enemy") != null)
@@ -118,7 +118,7 @@ public class PlayerShooting : MonoBehaviour
         }
     }
 
-
+    // Find the nearest enemy.
     GameObject FindNearestEnemy()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");

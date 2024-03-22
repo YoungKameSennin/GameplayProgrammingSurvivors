@@ -9,8 +9,8 @@ public class EnemyController : MonoBehaviour
     private Transform playerTransform;
 
     private float modifiedSpeed;
-    private Vector3 movementDirection; 
-    
+    private Vector3 movementDirection;
+
     public Animator animator;
 
     public SpriteRenderer spriteRenderer;
@@ -23,9 +23,9 @@ public class EnemyController : MonoBehaviour
         player = GameObject.Find("Player");
     }
 
-    void Start() 
+    void Start()
     {
-        // Ignore collision between the spawned gem and all enemies
+        // Ignore collision between the spawned gem and all enemies.
         GameObject[] Gems = GameObject.FindGameObjectsWithTag("Gem");
         foreach (GameObject gem in Gems)
         {
@@ -49,12 +49,13 @@ public class EnemyController : MonoBehaviour
         {
             return;
         }
+
         playerTransform = player.transform;
         movementDirection = player.transform.position - this.transform.position;
         movementDirection.Normalize();
         gameObject.transform.Translate(movementDirection * Time.deltaTime * speed);
-
-        if(movementDirection.x < 0)
+        // Flip the sprite based on the direction of movement.
+        if (movementDirection.x < 0)
         {
             gameObject.GetComponent<SpriteRenderer>().flipX = true;
         }
@@ -64,6 +65,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    // If the enemy collides with the player, ignore collision.
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("hpBottle"))
@@ -83,6 +85,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    // If the enemy is hit by the player's attack, flash red.
     private void OnTriggerEnter2D(Collider2D other)
     {
         // Check if the collider's gameObject belongs to the "attackLayer"
@@ -97,11 +100,12 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    // 
     private IEnumerator HitCooldown()
     {
-        yield return new WaitForSeconds(0.05f); 
+        yield return new WaitForSeconds(0.05f);
         animator.SetBool("IsHitCooldown", true);
-        yield return new WaitForSeconds(0.5f); 
+        yield return new WaitForSeconds(0.5f);
         animator.SetBool("IsHit", false);
         animator.SetBool("IsHitCooldown", false);
     }

@@ -18,7 +18,7 @@ public class APbullet : MonoBehaviour
     {
         if (target != null)
         {
-            // let bullet keep track the enemy
+            // Let bullet keep track the enemy.
             Vector2 direction = (target.position - transform.position).normalized;
             lastDirection = direction;
 
@@ -32,9 +32,9 @@ public class APbullet : MonoBehaviour
         }
     }
 
+    // If the bullet hits an enemy, deal damage to the enemy.
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        
         if (collider.gameObject.tag == "Enemy")
         {
             collider.gameObject.GetComponent<Health>().TakeDamage(damage);
@@ -46,6 +46,7 @@ public class APbullet : MonoBehaviour
 
     }
 
+    // If the bullet is out of camera bounds, destroy the bullet.
     void CheckIfOutOfCameraBounds()
     {
         Vector2 screenPosition = Camera.main.WorldToViewportPoint(transform.position);

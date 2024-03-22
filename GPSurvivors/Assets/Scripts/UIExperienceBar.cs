@@ -17,7 +17,7 @@ public class UIExperienceBar : MonoBehaviour
         experienceSlider.maxValue = statsManager.maxExperience;
         experienceSlider.value = statsManager.currentExperience;
     }
-    
+
     void Update()
     {
         // Update the timer by adding the time passed since the last frame
