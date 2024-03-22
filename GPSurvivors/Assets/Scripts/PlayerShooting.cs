@@ -66,7 +66,7 @@ public class PlayerShooting : MonoBehaviour
                 bullet.GetComponent<Bullet>().SetTarget(nearestEnemy.transform);
             }
 
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.05f);
         }
     }
 
@@ -90,7 +90,7 @@ public class PlayerShooting : MonoBehaviour
                 iceball.GetComponent<Bullet>().SetTarget(nearestEnemy.transform);
             }
 
-            yield return new WaitForSeconds(0.15f);
+            yield return new WaitForSeconds(0.07f);
         }
     }
 
